@@ -1,0 +1,36 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/promotion/mainTypes
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 1,
+        "name" : "满减促销",
+        "isMain" : "Y",
+        "parentId" : null
+    }, {
+        "id" : 2,
+        "name" : "单品促销",
+        "isMain" : "Y",
+        "parentId" : null
+    }, {
+        "id" : 3,
+        "name" : "套装促销",
+        "isMain" : "Y",
+        "parentId" : null
+    }, {
+        "id" : 4,
+        "name" : "赠品促销",
+        "isMain" : "Y",
+        "parentId" : null
+    }, {
+        "id" : 5,
+        "name" : "满赠促销",
+        "isMain" : "Y",
+        "parentId" : null
+    }, {
+        "id" : 10,
+        "name" : "首单立减",
+        "isMain" : "Y",
+        "parentId" : null
+    } ]
+}

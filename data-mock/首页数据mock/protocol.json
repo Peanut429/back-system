@@ -1,0 +1,6 @@
+// Request URL: https://api.quixmart.com/quixmart-sso/api/company/refund/protocol
+{
+    "resultCode": "1",
+    "message": "SUCCESS",
+    "data": true
+}

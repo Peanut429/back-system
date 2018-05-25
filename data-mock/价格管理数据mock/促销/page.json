@@ -1,0 +1,13 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/promotion/page?endTime=&pageNumber=1&pageSize=10&startTime=
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "dataList" : [ ],
+        "pageNo" : 1,
+        "pageSize" : 0,
+        "total" : 0,
+        "pages" : 1,
+        "totalGdsNum" : 0
+    }
+}

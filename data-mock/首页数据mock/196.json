@@ -1,0 +1,15 @@
+// Request URL: https://api.quixmart.com/quixmart-sso/api/company/196
+{
+    "resultCode": "1",
+    "message": "SUCCESS",
+    "data": {
+        "id": 196,
+        "companyName": "苏州顺美企业管理有限公司",
+        "brandName": "Smart Station",
+        "alipayAccount": "2088221924500175",
+        "alipayRefundSigned": true,
+        "adminRoleId": 248,
+        "enable": true,
+        "createdDate": "2017-09-18 09:49:41"
+    }
+}

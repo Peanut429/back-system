@@ -1,0 +1,54 @@
+import "./variable.styl"
+
+body, html
+  line-height: 1
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback'
+
+/* 日期选择器的公用样式 */
+.date-to
+    align-self: flex-end
+    height: 36px
+    line-height: 36px
+    text-align: center
+.ivu-date-picker
+    width: 100%
+    padding-top: 22px
+    .ivu-input
+        height: 36px
+        border: none
+        border-radius: 0
+        border-bottom: 1px solid rgba(0,0,0,0.1)
+        background-color: transparent
+        font-size: 14px
+        &:focus
+            border-bottom: 1px solid rgb(33, 150, 243)
+
+/* 动作按钮的样式（导入/导出/新增） */
+.action-col
+    display: flex
+    align-items: center
+    padding: 30px 0
+    cursor: pointer
+    font-size: 15px
+    user-select: none
+    color: #7b7b7b
+    &+.action-col
+        margin-left: 30px
+    &:hover
+        color: #ff9c10
+    .icon
+        margin-right: 10px
+        color: currentColor
+
+/* 表格及其页码的样式 */
+.table
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .1)
+    .ivu-table
+        font-size: 14px
+    .table-title
+        padding-left: 18px
+    .pages
+        display flex
+        justify-content center
+        align-items center
+        user-select: none

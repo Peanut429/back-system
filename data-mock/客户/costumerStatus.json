@@ -1,0 +1,12 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/order/customerStatus
+{
+    "resultCode" : "1",
+    "message" : "获取数据成功",
+    "data" : [ {
+        "customerStatusID" : "0",
+        "customerStatusName" : "正常使用"
+    }, {
+        "customerStatusID" : "1",
+        "customerStatusName" : "取消签约"
+    } ]
+}

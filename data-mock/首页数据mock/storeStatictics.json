@@ -1,0 +1,11 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/home/storeStatictics
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "customer" : 687,
+        "order" : 584,
+        "sale" : 828,
+        "amount" : 4189
+    }
+}

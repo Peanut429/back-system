@@ -1,0 +1,133 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/order/customerList?customerCode=&customerStatusID=&pageNo=1&pageSize=10&phone=&storeId=
+{
+    "resultCode" : "1",
+    "message" : "获取数据成功",
+    "data" : {
+        "dataList" : [ {
+            "customerCode" : 30488,
+            "phone" : "13421377570",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10612,
+            "storeName" : "国际科技园设备63",
+            "registerTime" : "2018-05-23 21:47:38",
+            "comeInTime" : "2018-05-23 21:47:38",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088802107056061"
+        }, {
+            "customerCode" : 30319,
+            "phone" : "17312566616",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10269,
+            "storeName" : "有轨基地",
+            "registerTime" : "2018-05-23 17:34:34",
+            "comeInTime" : "2018-05-23 17:34:33",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088212232341644"
+        }, {
+            "customerCode" : 30288,
+            "phone" : "13611918119",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10613,
+            "storeName" : "国际科技园设备71",
+            "registerTime" : "2018-05-23 16:54:26",
+            "comeInTime" : "2018-05-23 16:54:25",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088122581583573"
+        }, {
+            "customerCode" : 30281,
+            "phone" : "13771126305",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10269,
+            "storeName" : "有轨基地",
+            "registerTime" : "2018-05-23 16:40:13",
+            "comeInTime" : "2018-05-23 16:40:12",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088712199742251"
+        }, {
+            "customerCode" : 30214,
+            "phone" : "18530773256",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10612,
+            "storeName" : "国际科技园设备63",
+            "registerTime" : "2018-05-23 14:16:26",
+            "comeInTime" : "2018-05-23 14:16:26",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088012301224591"
+        }, {
+            "customerCode" : 30184,
+            "phone" : "13822264892",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10613,
+            "storeName" : "国际科技园设备71",
+            "registerTime" : "2018-05-23 13:14:09",
+            "comeInTime" : "2018-05-23 13:14:09",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088802745638962"
+        }, {
+            "customerCode" : 30160,
+            "phone" : "18751027379",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10613,
+            "storeName" : "国际科技园设备71",
+            "registerTime" : "2018-05-23 12:23:33",
+            "comeInTime" : "2018-05-23 12:23:33",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088412427147017"
+        }, {
+            "customerCode" : 30154,
+            "phone" : "18896601733",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10269,
+            "storeName" : "有轨基地",
+            "registerTime" : "2018-05-23 12:08:25",
+            "comeInTime" : "2018-05-23 12:08:25",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088612859442562"
+        }, {
+            "customerCode" : 30139,
+            "phone" : "13913557142",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10269,
+            "storeName" : "有轨基地",
+            "registerTime" : "2018-05-23 11:41:33",
+            "comeInTime" : "2018-05-23 11:41:33",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088612233929474"
+        }, {
+            "customerCode" : 30034,
+            "phone" : "18051073949",
+            "customerStatusID" : "0",
+            "customerStatusName" : "正常使用",
+            "storeId" : 10269,
+            "storeName" : "有轨基地",
+            "registerTime" : "2018-05-22 17:47:22",
+            "comeInTime" : "2018-05-22 17:47:22",
+            "goOutTime" : null,
+            "isInBlackList" : false,
+            "userAccount" : "2088222446243232"
+        } ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 1411,
+        "pages" : 142,
+        "totalGdsNum" : 0
+    }
+}

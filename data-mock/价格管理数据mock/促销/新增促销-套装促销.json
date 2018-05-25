@@ -1,0 +1,16 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/promotion/subTypes/3
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 8,
+        "name" : "套装折扣",
+        "isMain" : "N",
+        "parentId" : 3
+    }, {
+        "id" : 9,
+        "name" : "套装减免",
+        "isMain" : "N",
+        "parentId" : 3
+    } ]
+}

@@ -1,0 +1,25 @@
+// Request URL: https://api.quixmart.com/quixmart-sso/api/company/delivery/v2
+{
+    "resultCode": "1",
+    "message": "SUCCESS",
+    "data": [
+        {
+            "id": 77,
+            "login": "peisong",
+            "userCode": "002",
+            "phone": "15206134339",
+            "companyId": 196,
+            "fullName": "配送员",
+            "activated": true,
+            "enable": true,
+            "langKey": "zh-cn",
+            "createdBy": "liu",
+            "createdDate": "2017-09-18 10:52:29",
+            "lastModifiedBy": "liu",
+            "lastModifiedDate": "2017-10-11 13:27:19",
+            "authorities": [
+                "ROLE_USER"
+            ]
+        }
+    ]
+}

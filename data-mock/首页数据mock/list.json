@@ -1,0 +1,134 @@
+// list?endTime=&pageNo=1&pageSize=10&startTime=&viewed=0
+// Request URL: https://api.quixmart.com/quixmart-api/api/message/list?endTime=&pageNo=1&pageSize=10&startTime=&viewed=0
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "dataList" : [ {
+            "id" : 345898,
+            "messageOid" : "09cdae78-2a84-427c-8b28-0f4fcd7b7e6a",
+            "messageTypeId" : 1001,
+            "content" : "有轨基地商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10269,
+            "gdsId" : 11398,
+            "stockAddress" : "有轨基地",
+            "createBy" : 8373,
+            "createDate" : "2018-05-23 13:19:41"
+        }, {
+            "id" : 345895,
+            "messageOid" : "57517ac8-677f-4c1a-ba6e-e578ca36ac08",
+            "messageTypeId" : 1001,
+            "content" : "国际科技园设备71商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10613,
+            "gdsId" : 11382,
+            "stockAddress" : "苏州国际科技园",
+            "createBy" : 30184,
+            "createDate" : "2018-05-23 13:17:05"
+        }, {
+            "id" : 343288,
+            "messageOid" : "7243b5d0-eea9-43d2-9cc6-a038359f9dd1",
+            "messageTypeId" : 1001,
+            "content" : "有轨基地商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10269,
+            "gdsId" : 11398,
+            "stockAddress" : "有轨基地",
+            "createBy" : 23456,
+            "createDate" : "2018-05-23 00:28:55"
+        }, {
+            "id" : 343189,
+            "messageOid" : "9360ef0a-9537-4969-99da-2d3a36cd7f36",
+            "messageTypeId" : 1001,
+            "content" : "有轨基地商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10269,
+            "gdsId" : 11398,
+            "stockAddress" : "有轨基地",
+            "createBy" : 30034,
+            "createDate" : "2018-05-22 17:48:24"
+        }, {
+            "id" : 343183,
+            "messageOid" : "dc00cf39-6c4d-4bf5-a51c-d342955b3f67",
+            "messageTypeId" : 1001,
+            "content" : "有轨基地商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10269,
+            "gdsId" : 11398,
+            "stockAddress" : "有轨基地",
+            "createBy" : 30032,
+            "createDate" : "2018-05-22 17:46:15"
+        }, {
+            "id" : 343154,
+            "messageOid" : "9167dfa3-877d-40d8-aef5-53d6b091cab2",
+            "messageTypeId" : 1001,
+            "content" : "有轨基地商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10269,
+            "gdsId" : 11398,
+            "stockAddress" : "有轨基地",
+            "createBy" : 8373,
+            "createDate" : "2018-05-22 16:30:10"
+        }, {
+            "id" : 343101,
+            "messageOid" : "47989c5a-d931-4f8a-bc1f-99565124d191",
+            "messageTypeId" : 1001,
+            "content" : "国际科技园设备63商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10612,
+            "gdsId" : 11382,
+            "stockAddress" : "苏州国际科技园",
+            "createBy" : 4912,
+            "createDate" : "2018-05-22 15:32:42"
+        }, {
+            "id" : 343088,
+            "messageOid" : "d2b8151d-e169-474c-bf8c-4b14fc4a1a7c",
+            "messageTypeId" : 1001,
+            "content" : "有轨基地商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10269,
+            "gdsId" : 11398,
+            "stockAddress" : "有轨基地",
+            "createBy" : 8504,
+            "createDate" : "2018-05-22 15:17:12"
+        }, {
+            "id" : 343023,
+            "messageOid" : "c5ca96bf-2937-4a33-8cd3-d4192e772850",
+            "messageTypeId" : 1001,
+            "content" : "国际科技园设备63商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10612,
+            "gdsId" : 11372,
+            "stockAddress" : "苏州国际科技园",
+            "createBy" : 29740,
+            "createDate" : "2018-05-22 13:48:37"
+        }, {
+            "id" : 342959,
+            "messageOid" : "f2f3dfca-1f46-4073-a94f-16890a355cd1",
+            "messageTypeId" : 1001,
+            "content" : "国际科技园设备71商品库存预警，请查看详情。",
+            "viewed" : 0,
+            "isDel" : 0,
+            "referenceId" : 10613,
+            "gdsId" : 11385,
+            "stockAddress" : "苏州国际科技园",
+            "createBy" : 26013,
+            "createDate" : "2018-05-22 12:20:30"
+        } ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 345,
+        "pages" : 35,
+        "totalGdsNum" : 0
+    }
+}

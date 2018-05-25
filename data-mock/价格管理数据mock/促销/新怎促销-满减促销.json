@@ -1,0 +1,16 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/promotion/subTypes/1
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 6,
+        "name" : "阶梯满减",
+        "isMain" : "N",
+        "parentId" : 1
+    }, {
+        "id" : 7,
+        "name" : "每满减",
+        "isMain" : "N",
+        "parentId" : 1
+    } ]
+}
