@@ -5,25 +5,33 @@
             type="text"
             :class="{'require': redLine}"
             ref="text"
-            v-model="text"
+            :value="inputValue"
+            :disabled="disabled"
             @blur="blur"
+            @input="input"
         />
         <input
             v-if="inputType === 'number'"
             type="number"
             :class="{'require': redLine}"
             ref="number"
-            v-model="number"
+            :value="inputValue"
+            :disabled="disabled"
             @blur="blur"
+            @input="input"
             onkeypress="return (/[\d|\.|-]/.test(String.fromCharCode(event.keyCode || event.which)))"
         />
-        <span ref="title" class="input-title" :class="{'active': startInput || text !== '' || number !== ''}">{{inputTitle}}</span>
+        <span ref="title" class="input-title" :class="{'active': active}">{{inputTitle}}</span>
     </div>
 </template>
 <script type="text/ecmascript-6">
 // onkeypress="return (/[\d\.]/.test(String.fromCharCode(event.keyCode || event.which)))"
 export default {
     props: {
+        inputValue: {
+            type: [String, Number],
+            default: ''
+        },
         inputTitle: {
             type: String,
             require: true
@@ -48,32 +56,42 @@ export default {
         },
         min: {
             type: [String, Number]
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
+    },
+    model: {
+        prop: 'inputValue',
+        event: 'getValue'
     },
     data() {
         return {
             startInput: false,
-            number: '',
-            text: '',
             redLine: false
         };
     },
     methods: {
         inputHandle() {
+            if (this.disabled) {
+                return false;
+            }
             this.startInput = true;
             this.$refs[this.inputType].focus();
         },
         blur() {
-            // console.log(this[this.inputType]);
             this.startInput = false;
-            if (this[this.inputType] === '') {
+            if (this.inputValue === '') {
                 if (this.isRequired) {
                     this.redLine = true;
                 }
             } else {
                 this.redLine = false;
             }
-            this.$emit('getValue', this[this.inputType]);
+        },
+        input($event) {
+            this.$emit('getValue', $event.target.value);
         }
         // getValue(e) {
         // },
@@ -89,6 +107,15 @@ export default {
         //         // this.number = parseFloat(this.number);
         //     }
         // }
+    },
+    computed: {
+        active() {
+            if (this.startInput) {
+                return true;
+            } else if (this.inputValue != null && this.inputValue !== '') {
+                return true;
+            }
+        }
     }
 };
 </script>

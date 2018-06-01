@@ -1,29 +1,25 @@
 <template>
     <div class="goods-price">
         <commontitle titleName="价格管理/商品价格"></commontitle>
-        <Row :gutter="48">
+        <Row :gutter="16">
             <Col :xs="{span: 24}" :md="16">
                 <Row :gutter="16">
                     <Col :xs="{span: 12}" :md="{span: 8}">
-                        <selector :list="storeList" listName="所在门店" :selected="storeList[0].value" @selectValue="getSelect"></selector>
+                        <selector v-model="searchInfo.storkName" :list="storeList" listName="所在门店"></selector>
                     </Col>
                     <Col :xs="{span: 12}" :md="{span: 8}">
-                        <commoninput inputTitle="SKU编码"></commoninput>
+                        <commoninput v-model="searchInfo.productSku" inputTitle="SKU编码"></commoninput>
                     </Col>
                     <Col :xs="{span: 12}" :md="{span: 8}">
-                        <commoninput inputTitle="商品名称"></commoninput>
+                        <commoninput v-model="searchInfo.gdsName" inputTitle="商品名称"></commoninput>
                     </Col>
                 </Row>
             </Col>
-            <Col span="6" class="buttons">
-                <Button size="large" class="clear-btn" type="ghost">清空条件</Button>
-                <Button size="large" class="search-btn" type="primary">搜索</Button>
+            <Col :xs="{span: 24}" :md="{span: 8}">
+                <search @clear="clear" @search="search"></search>
             </Col>
         </Row>
-        <Table class="table" :columns="goodsInfo" style="margin-top: 40px">
-            <template slot="header">
-                <div class="table-title">销售动态</div>
-            </template>
+        <Table class="table" :columns="goodsInfo" :data="gdsData" style="margin-top: 40px">
             <template slot="footer">
                 <div class="pages">
                     <Page size="small" :total="total" show-total @on-change="getPage"></Page>
@@ -36,51 +32,146 @@
 <script type="text/ecmascript-6">
 import commontitle from '../common/commontitle';
 import commoninput from '../common/commoninput';
+import search from '../common/search';
 import selector from '../common/selector';
 export default {
-  data() {
+    data() {
       return {
           total: 100,
+          dom: 'span',
+          rowIndex: () => this.$refs.newPrice.value,
+          newPrice: 0,
+          searchInfo: {
+              storkName: 'all',
+              productSku: null,
+              gdsName: null
+          },
           storeList: [
-              {label: '全部', value: 'all'},
-              {label: '国际科技园01L', value: 'gk01'},
-              {label: '国际科技园02L', value: 'gk02'},
-              {label: '国际科技园03L', value: 'gk03'}
+              {label: '全部', value: 'all'}
           ],
           goodsInfo: [
-              {title: '所在门店', key: 'storeName'},
-              {title: 'SKU编码', key: 'SKU'},
-              {title: '商品条形码', key: 'barcode'},
-              {title: '商品名称', key: 'goodsName'},
-              {title: '商品类型', key: 'goodsType'},
-              {title: '单位', key: 'measurementUnit'},
-              {title: '零售价', key: 'sellingPrice'},
-              {title: '操作', key: 'action'}
-          ]
+              {title: '所在门店', key: 'storeName', width: 150, fixed: 'left', ellipsis: true},
+              {title: 'SKU编码', key: 'productSku', width: 108},
+              {title: '商品条形码', key: 'productBarcode', minWidth: 150},
+              {title: '商品名称', key: 'gdsName', minWidth: 150, ellipsis: true},
+              {title: '商品类型', key: 'gdsType', Width: 70},
+              {title: '单位', key: 'unit', Width: 70},
+              {
+                  title: '零售价',
+                  Width: 70,
+                  render: (h, params) => {
+                      if (this.rowIndex !== params.index) {
+                          return h('span', params.row.marketPrice);
+                      } else {
+                          return h('input', {
+                              domProps: {
+                                  value: params.row.marketPrice
+                              },
+                              style: {
+                                  width: '80%'
+                              },
+                              on: {
+                                  input: ($event) => {
+                                      this.newPrice = $event.target.value;
+                                  }
+                              }
+                          });
+                      }
+                  }
+              },
+              {
+                  title: '操作',
+                  width: 80,
+                  fixed: 'right',
+                  render: (h, params) => {
+                      let text = '';
+                      if (this.rowIndex !== params.index) {
+                          text = '编辑';
+                      } else {
+                          text = '完成';
+                      }
+                      return h('Button', {
+                          props: {
+                              type: 'text',
+                              size: 'small'
+                          },
+                          style: {
+                              userSelect: 'none'
+                          },
+                          on: {
+                              click: () => {
+                                  if (this.rowIndex !== params.index) {
+                                      this.rowIndex = params.index;
+                                  } else {
+                                      this.rowIndex = null;
+                                      if (!this.newPrice) {
+                                          return false;
+                                      }
+                                      params.row.marketPrice = this.newPrice;
+                                      this.newPrice = null;
+                                      this.$Message.config({
+                                          top: 200
+                                      });
+                                      this.$Message.success({
+                                          content: '修改成功！'
+                                      });
+                                      setTimeout(() => {
+                                          this.$Message.destroy();
+                                      }, 2000);
+                                  }
+                              }
+                          }
+                      }, text);
+                  }
+              }
+          ],
+          gdsData: []
       };
-  },
-  methods: {
-      getSelect() {},
-      getPage() {}
-  },
-  components: {
-      commontitle,
-      commoninput,
-      selector
-  }
+    },
+    beforeMount() {
+        this.getStoreList();
+        this.getGdsPrice();
+    },
+    methods: {
+        // 获取门店列表信息
+        getStoreList() {
+            this.$store.dispatch('getStoreList').then(res => {
+                this.storeDetail = res.data;
+                this.storeDetail.forEach(item => {
+                    this.storeList.push({label: item.storkName, value: item.storkName});
+                });
+            });
+        },
+        // 获取商品价格数据
+        getGdsPrice() {
+            this.$axios.get('/api/gdsPrice').then(res => {
+                if (res.data.errno === 0) {
+                    this.gdsData = res.data.data.dataList;
+                    this.total = res.data.data.totalGdsNum;
+                }
+            });
+        },
+        getPage() {},
+        clear() {
+            this.searchInfo = {
+                storkName: 'all',
+                productSku: null,
+                gdsName: null
+            };
+        },
+        search() {}
+    },
+    components: {
+        commontitle,
+        commoninput,
+        selector,
+        search
+    }
 };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
     .goods-price
-        .buttons
-            display: flex
-            // justify-content: flex-end
-            align-items: flex-end
-            height: 59px
-            .clear-btn, .search-btn
-                margin-left: 10px
-                box-shadow: 0 2px 5px rgba(0, 0, 0, .26)
         /*.table
             box-shadow: 1px 1px 2px rgba(0, 0, 0, .1)
             font-size: 14px
@@ -90,4 +181,14 @@ export default {
                 display: flex
                 justify-content: center
                 align-items: center*/
+        .table
+            .ivu-table-cell
+                padding: 0
+                padding-left: 10px
+                .ivu-btn-text
+                    color: #2196f3
+            .ivu-table-fixed-right
+                thead
+                    .ivu-table-cell
+                        padding-left: 20px
 </style>

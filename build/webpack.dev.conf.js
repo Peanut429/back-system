@@ -24,6 +24,9 @@ let storeList = appData.storeList
 let gdsStore = appData.gdsStore
 let orderList = appData.orderList
 let gds = appData.gds
+let gdsPrice = appData.gdsPrice
+let product1 = appData.product1
+let product2 = appData.product2
 
 let apiRouters = express.Router()
 app.use('/api', apiRouters)
@@ -75,6 +78,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               errno: 0,
               data: gds
           })
+      }),
+      app.get('/api/gdsPrice', (req, res) => {
+          res.json({
+              errno: 0,
+              data: gdsPrice
+          })
+      }),
+      app.get('/api/product1', (req, res) =>{
+          res.json({
+              errno: 0,
+              data: product1
+          });
+      }),
+      app.get('/api/product2', (req, res) => {
+          res.json({
+              errno: 0,
+              data: product2
+          });
       })
     },
     clientLogLevel: 'warning',

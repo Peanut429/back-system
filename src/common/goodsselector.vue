@@ -9,7 +9,7 @@
             </div>
             <div class="rules-content">
                 <div v-if="!radio || whichGoods === 'part'">
-                    <Table :columns="tableColumns">
+                    <Table :columns="tableColumns" :data="selected">
                         <template slot="header">
                             <div class="table-header">
                                 <span>已选商品</span>
@@ -26,7 +26,17 @@
                 </div>
             </div>
         </div>
-        <goodslist ref="goodslist"></goodslist>
+        <Row type="flex" justify="space-between" :style="{padding: '5px'}" v-if="actionBtn">
+            <Col>
+                <router-link to="/home/promotion">
+                    <div class="return-btn">返回</div>
+                </router-link>
+            </Col>
+            <Col style="display: flex;justify-content: flex-end">
+                <Button type="ghost" :disabled="canPublish">发布活动</Button>
+            </Col>
+        </Row>
+        <goodslist ref="goodslist" :products="products" :total="total" @selectedGds="selectedGds"></goodslist>
     </div>
 </template>
 
@@ -40,28 +50,138 @@
             selectorTitle: {
                 type: String,
                 required: true
+            },
+            actionBtn: {
+                type: Boolean,
+                default: true
+            },
+            calcTime: {
+                type: Boolean,
+                default: true
+            },
+            data: {
+                type: Object,
+                default: null
             }
         },
         data() {
             return {
                 whichGoods: 'all',
                 modalShow: false,
+                publish: true,
                 tableColumns: [
-                    {title: 'SKU编码', key: 'SKU'},
-                    {title: '商品条形码', key: 'barcode'},
-                    {title: '商品名称', key: 'goodsName'},
-                    {title: '商品类型', key: 'goodsType'},
-                    {title: '规格', key: 'specification'},
-                    {title: '品牌', key: 'brand'},
-                    {title: '零售价', key: 'sellingPrice'},
-                    {title: '单位', key: 'measurementUnit'},
-                    {title: '操作', key: 'actions'}
-                ]
+                    {title: 'SKU编码', key: 'productSku', width: 108, fixed: 'left'},
+                    {title: '商品条形码', key: 'productBarcode', minWidth: 150},
+                    {title: '商品名称', key: 'gdsName', minWidth: 150, ellipsis: true},
+                    {title: '商品类型', key: 'gdsType', width: 100},
+                    {title: '规格', key: 'format', width: 100},
+                    {title: '品牌', key: 'productBrandName', width: 70},
+                    {title: '零售价', key: 'marketPrice', width: 100},
+                    {title: '单位', key: 'unit', width: 70},
+                    {
+                        title: '操作',
+                        width: 100,
+                        fixed: 'right',
+                        render: (h, params) => {
+                            return h('Button', {
+                                props: {
+                                    type: 'text',
+                                    size: 'small'
+                                },
+                                style: {
+                                    color: '#2196f3',
+                                    userSelect: 'none'
+                                },
+                                on: {
+                                    click: () => {
+                                        this.selected.splice(params.index, 1);
+                                    }
+                                }
+                            }, '删除');
+                        }
+                    }
+                ],
+                products: [],
+                selected: [],
+                total: 0
             };
         },
         methods: {
+            getProducts() {
+                return new Promise((resolve, reject) => {
+                    this.$axios.get('/api/product1').then(res => {
+                        // console.log(res);
+                        if (res.data.errno === 0) {
+                            this.products = res.data.data.dataList;
+                            this.total = res.data.data.total;
+                            resolve();
+                        }
+                    });
+                });
+            },
             selectGoods() {
-                this.$refs.goodslist.modalShow();
+                this.getProducts().then(() => {
+                    this.$refs.goodslist.modalShow();
+                });
+            },
+            selectedGds(data) {
+                if (this.selected.length === 0) {
+                    this.selected = [...data];
+                } else {
+                    for (let i = 0; i < data.length; i++) {
+                        for (let j = 0; j < this.selected.length; j++) {
+                            if (data[i].productSku === this.selected[j].productSku) {
+                                data.splice(i, 1);
+                                j = this.selected.length;
+                                i--;
+                            }
+                        }
+                    }
+                    this.selected = this.selected.concat(data);
+                }
+                this.$emit('getGdsList', this.selected);
+            }
+        },
+        computed: {
+            canPublish() {
+                if (this.dataIsRight && this.calcTime) {
+                    return false;
+                } else {
+                    return true;
+                }
+            },
+            dataIsRight() {
+                if (this.data == null) {
+                    return true;
+                }
+                let flag = true;
+                if (this.data.name === '满赠促销') {
+                    this.data.rule.forEach((item) => {
+                        if (Number(item.full) <= Number(item.reduce)) {
+                            flag = false;
+                        }
+                        if (Number(item.reduce) <= 0) {
+                            flag = false;
+                        }
+                    });
+                }
+                if (this.data.name === '单品促销') {
+                    if (this.data.rule >= 100 || this.data.rule <= 0) {
+                        flag = false;
+                    }
+                }
+                if (this.data.name === '套装促销') {
+                    if (this.data.rule.type === 'percentage') {
+                        if (this.data.rule.value >= 100 || this.data.rule.value <= 0) {
+                            flag = false;
+                        }
+                    } else {
+                        if (Number(this.data.rule.value) <= 0) {
+                            flag = false;
+                        }
+                    }
+                }
+                return flag;
             }
         },
         components: {
@@ -93,7 +213,6 @@
                     align-self: flex-end
                     margin-bottom: 7px
             .ivu-table-wrapper
-                /*border: none*/
                 .table-header
                     display: flex
                     justify-content: space-between
@@ -104,10 +223,26 @@
                         align-items: center
                         color: $grey-color
                         cursor: pointer
+                        user-select: none
                         &:hover
                             color: #ff9c10
                             .icon
                                 color: currentColor
                         .icon
                             margin-right: 5px
+                .ivu-table-fixed, .ivu-table-fixed-right
+                    top: 48px
+                .ivu-table-fixed-right
+                    thead
+                        .ivu-table-cell
+                            padding-left: 27px
+        .return-btn
+            height: 32px
+            line-height: 32px
+            width: 76px
+            padding: 0 6px
+            text-align: center
+            background-color: #fff
+            border-radius: 5px
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)
 </style>

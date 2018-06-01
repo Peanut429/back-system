@@ -1,0 +1,78 @@
+{
+    "resultCode" : "1",
+    "message" : "获取产品成功！",
+    "data" : {
+        "dataList" : [ {
+            "id" : 11401,
+            "gdsName" : "佳得乐柠檬味运动饮料",
+            "productSku" : "103",
+            "productBarcode" : "6934024590169",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 4.60,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "瓶",
+            "gdsNum" : 0
+        }, {
+            "id" : 11366,
+            "gdsName" : "喜之郎蜜桔果肉",
+            "productSku" : "107",
+            "productBarcode" : "6902934976298",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 7.50,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11365,
+            "gdsName" : "合味道意大利牛肉味",
+            "productSku" : "106",
+            "productBarcode" : "6917536014057",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 5.50,
+            "format" : "商品规格",
+            "productBrandName" : "B",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11398,
+            "gdsName" : "三得利利趣咖啡",
+            "productSku" : "139",
+            "productBarcode" : "6921581540270",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 4.90,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "瓶",
+            "gdsNum" : 0
+        }, {
+            "id" : 11390,
+            "gdsName" : "乐事吮指红烧肉味",
+            "productSku" : "131",
+            "productBarcode" : "6924743915824",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 9.10,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11361,
+            "gdsName" : "小茗同学冷泡青柠红茶",
+            "productSku" : "102",
+            "productBarcode" : "6925303754952",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 4.90,
+            "format" : "商品规格",
+            "productBrandName" : "B",
+            "unit" : "瓶",
+            "gdsNum" : 0
+        } ],
+        "pageNo" : 2,
+        "pageSize" : 10,
+        "total" : 16,
+        "pages" : 2,
+        "totalGdsNum" : 0
+    }
+}

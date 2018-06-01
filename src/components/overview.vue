@@ -2,7 +2,7 @@
     <div class="overview">
         <commontitle titleName="首页/概览"></commontitle>
         <Row class="selector">
-            <selector ref="selector" listWidth="50%" :list="storeList" listName="门店" :selected="storeList[0].value" @selectorValue="getValue"></selector>
+            <selector ref="selector" listWidth="50%" :list="storeList" listName="门店" v-model="storkName"></selector>
         </Row>
         <Row class="card-row" :gutter="16">
             <Col v-for="(item, index) in cardList" :key="index" :xs="{span: 24}" :sm="{span: 12}" :md="{span: 6}">
@@ -39,7 +39,7 @@ import card from '../common/card';
 export default {
     data() {
       return {
-          selectValue: () => this.$refs.selector.value,
+          storkName: 'all',
           storeList: [
               {label: '全部', value: 'all'}
           ],
@@ -79,11 +79,7 @@ export default {
         this.getOrderList();
     },
     methods: {
-        getValue(value) {
-            // console.log(value);
-            // this.selectValue = value;
-            console.log(this.$refs.selector.value);
-        },
+        // 获取门店列表
         getStoreList() {
             this.$store.dispatch('getStoreList').then(res => {
                 this.storeDetail = res.data;
@@ -93,12 +89,14 @@ export default {
                 });
             });
         },
+        // 获取库存
         getGdsStore() {
             this.$store.dispatch('getGdsStore').then(res => {
                 // console.log(res);
                 this.inventoryData = res.dataList;
             });
         },
+        // 获取订单
         getOrderList() {
             this.$store.dispatch('getOrderList').then(res => {
                 console.log(res);

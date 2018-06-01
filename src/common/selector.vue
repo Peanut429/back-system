@@ -1,7 +1,7 @@
 <template>
     <div class="selector">
-        <div ref="title" class="selector-name" :class="{'active': value}">{{listName}}</div>
-        <Select :size="listSize" @on-change="handleChange" v-model="value" :style="{width: listWidth}">
+        <div ref="title" class="selector-name" :class="{'active': !!selected}">{{listName}}</div>
+        <Select :size="listSize" @on-change="handleChange" :value="selected" :disabled="disabled" :style="{width: listWidth}">
             <Option v-for="(item, index) in list" :key="index" :value="item.value">{{item.label}}</Option>
         </Select>
     </div>
@@ -9,6 +9,10 @@
 
 <script type="text/ecmascript-6">
     export default {
+        model: {
+            prop: 'selected',
+            event: 'getSelectorValue'
+        },
         props: {
             listName: {
                 type: String,
@@ -29,19 +33,18 @@
             selected: {
                 type: String,
                 default: ''
+            },
+            disabled: {
+                type: Boolean,
+                default: false
             }
         },
         data() {
-            return {
-                // active: false,
-                value: this.selected
-            };
+            return {};
         },
         methods: {
             handleChange(name) {
-                // this.active = true;
-                this.value = name;
-                this.$emit('selectorValue', this.value);
+                this.$emit('getSelectorValue', name);
             }
         }
     };

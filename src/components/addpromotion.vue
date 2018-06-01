@@ -1,15 +1,15 @@
 <template>
     <div class="addpromotion">
         <commontitle titleName="价格管理/促销/新增促销"></commontitle>
-        <Row type="flex" :gutter="16"  :style="{width: '60%'}">
-            <Col span="8">
-                <selector listName="所在门店" :list="storeList" :selected="storeList[0].value"></selector>
+        <Row type="flex" :gutter="16">
+            <Col :xs="{span: 8}" :md="{span: 6}">
+                <selector listName="所在门店" :list="storeList" v-model="storeName"></selector>
             </Col>
-            <Col>
-                <DatePicker type="date" @on-change="chooseDate" placeholder="开始时间"></DatePicker>
+            <Col :xs="{span: 8}" :md="{span: 6}">
+                <DatePicker type="datetime" @on-change="chooseStart" placeholder="开始时间"></DatePicker>
             </Col>
-            <Col>
-                <DatePicker type="date" @on-change="chooseDate" placeholder="结束时间"></DatePicker>
+            <Col :xs="{span: 8}" :md="{span: 6}">
+                <DatePicker type="datetime" @on-change="chooseEnd" placeholder="结束时间"></DatePicker>
             </Col>
         </Row>
         <Tabs type="line" style="margin: 30px 0;" :animated="false">
@@ -23,35 +23,35 @@
                         </RadioGroup>
                     </div>
                     <div class="rules-content">
-                        <div class="djmj" v-if="reduceType === '递阶满减'">
-                            <div class="content-row" v-for="(item, index) in fullReduction" :key="index">
+                        <div class="djmj" v-show="reduceType === '递阶满减'">
+                            <div class="content-row" v-for="(item, index) in fullReduceRule" :key="index">
                                 <div class="icon" @click="removeRules(index)">
                                     <Icon size="20" type="minus-circled"></Icon>
                                 </div>
                                 <div class="input-wrapper">
-                                    <commoninput inputTitle="满" :isRequired="true" inputType="number"></commoninput>
+                                    <commoninput v-model="item.full" inputTitle="满" :isRequired="true" inputType="number"></commoninput>
                                 </div>
                                 <div class="input-wrapper">
-                                    <commoninput inputTitle="减" :isRequired="true" inputType="number"></commoninput>
+                                    <commoninput v-model="item.reduce" inputTitle="减" :isRequired="true" inputType="number"></commoninput>
                                 </div>
                             </div>
                             <div style="margin: 10px 0;padding: 0 15px;" @click="addRules">
                                 <Icon size="20" type="plus-circled"></Icon>
                             </div>
                         </div>
-                        <div class="mmj" v-if="reduceType === '每满减'">
+                        <div class="mmj" v-show="reduceType === '每满减'">
                             <div class="content-row">
                                 <div class="input-wrapper">
-                                    <commoninput inputTitle="满" :isRequired="true" inputType="number"></commoninput>
+                                    <commoninput v-model="everyMinusRule[0].full" inputTitle="满" :isRequired="true" inputType="number"></commoninput>
                                 </div>
                                 <div class="input-wrapper">
-                                    <commoninput inputTitle="减" :isRequired="true" inputType="number"></commoninput>
+                                    <commoninput v-model="everyMinusRule[0].reduce" inputTitle="减" :isRequired="true" inputType="number"></commoninput>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <goodsselector selectorTitle="选择商品 ： " :radio="radioGroup"></goodsselector>
+                <goodsselector selectorTitle="选择商品 ： " :radio="radioGroup" :calcTime="calcTime" :data="fullReduce"></goodsselector>
             </TabPane>
             <TabPane label="单品促销">
                 <div class="rules-container">
@@ -61,12 +61,12 @@
                     <div class="rules-content">
                         <div class="content-row">
                             <div class="input-wrapper">
-                                <commoninput inputTitle="折扣(%)" :isRequired="true" inputType="number"></commoninput>
+                                <commoninput v-model="discount" inputTitle="折扣(%)" :isRequired="true" inputType="number"></commoninput>
                             </div>
                         </div>
                     </div>
                 </div>
-                <goodsselector selectorTitle="选择商品 ： " :radio="radioGroup"></goodsselector>
+                <goodsselector selectorTitle="选择商品 ： " :radio="radioGroup" :data="{name: '单品促销', rule: discount}"></goodsselector>
             </TabPane>
             <TabPane label="套装促销">
                 <div class="rules-container">
@@ -76,18 +76,18 @@
                     <div class="rules-content">
                         <div class="content-row">
                             <div class="input-wrapper">
-                                <selector listName="促销方式" :list="promotionWay" :selected="promotionWay[0].value" @selectorValue="getpromotionWay"></selector>
+                                <selector v-model="promotionWayValue" listName="促销方式" :list="promotionWay"></selector>
                             </div>
-                            <div v-if="promotionWayValue === 'discount'" class="input-wrapper">
-                                <commoninput inputTitle="折扣(%)" inputType="number"></commoninput>
+                            <div v-show="promotionWayValue === 'percentage'" class="input-wrapper">
+                                <commoninput v-model="percentage" inputTitle="折扣(%)" inputType="number"></commoninput>
                             </div>
-                            <div v-if="promotionWayValue === 'reduce'" class="input-wrapper">
-                                <commoninput inputTitle="扣减(元)" inputType="number"></commoninput>
+                            <div v-show="promotionWayValue === 'reduce'" class="input-wrapper">
+                                <commoninput v-model="reduce" inputTitle="扣减(元)" inputType="number"></commoninput>
                             </div>
                         </div>
                     </div>
                 </div>
-                <goodsselector selectorTitle="选择商品">
+                <goodsselector selectorTitle="选择商品" :data="suit">
                     <div slot="footer" class="footer">
                         <ul class="result">
                             <li class="original">
@@ -103,8 +103,20 @@
                 </goodsselector>
             </TabPane>
             <TabPane label="赠品促销">
-                <goodsselector selectorTitle="购买商品"></goodsselector>
-                <goodsselector selectorTitle="赠送商品"></goodsselector>
+                <div class="gdsSelWrapper">
+                    <goodsselector selectorTitle="购买商品" :actionBtn="false"></goodsselector>
+                    <goodsselector selectorTitle="赠送商品" :actionBtn="false"></goodsselector>
+                    <Row type="flex" justify="space-between" :style="{padding: '5px'}">
+                        <Col>
+                            <router-link to="/home/promotion">
+                                <div class="return-btn">返回</div>
+                            </router-link>
+                        </Col>
+                        <Col style="display: flex;justify-content: flex-end">
+                            <Button type="ghost" :disabled="true">发布活动</Button>
+                        </Col>
+                    </Row>
+                </div>
             </TabPane>
             <TabPane label="满赠促销">
                 <div class="rules-container">
@@ -119,8 +131,20 @@
                         </div>
                     </div>
                 </div>
-                <goodsselector selectorTitle="购买商品"></goodsselector>
-                <goodsselector selectorTitle="赠送商品"></goodsselector>
+                <div class="gdsSelWrapper">
+                    <goodsselector selectorTitle="购买商品" :actionBtn="false"></goodsselector>
+                    <goodsselector selectorTitle="赠送商品" :actionBtn="false"></goodsselector>
+                    <Row type="flex" justify="space-between" :style="{padding: '5px'}">
+                        <Col>
+                            <router-link to="/home/promotion">
+                                <div class="return-btn">返回</div>
+                            </router-link>
+                        </Col>
+                        <Col style="display: flex;justify-content: flex-end">
+                            <Button type="ghost" :disabled="true">发布活动</Button>
+                        </Col>
+                    </Row>
+                </div>
             </TabPane>
             <TabPane label="首单立减">
                 <div class="rules-container">
@@ -135,9 +159,19 @@
                         </div>
                     </div>
                 </div>
+                <Row type="flex" justify="space-between" :style="{padding: '5px'}">
+                    <Col>
+                        <router-link to="/home/promotion">
+                            <div class="return-btn">返回</div>
+                        </router-link>
+                    </Col>
+                    <Col style="display: flex;justify-content: flex-end">
+                        <Button type="ghost" :disabled="true">发布活动</Button>
+                    </Col>
+                </Row>
             </TabPane>
         </Tabs>
-        <Row type="flex" justify="space-between">
+        <!-- <Row type="flex" justify="space-between">
             <Col>
                 <router-link to="/home/promotion">
                     <div class="return-btn">返回</div>
@@ -146,7 +180,7 @@
             <Col style="display: flex;justify-content: flex-end">
                 <Button type="ghost" :disabled="disabled">发布活动</Button>
             </Col>
-        </Row>
+        </Row> -->
     </div>
 </template>
 
@@ -158,39 +192,106 @@
     export default {
         data() {
             return {
-                disabled: true,
+                // 选择促销门店
+                storeName: 'all',
+                // 活动发布时间
+                startTime: null,
+                // 活动截止时间
+                endTime: null,
+                // 发布按钮禁用状态
+                // publish: true,
+                // 套装促销-折扣百分比值
+                percentage: '',
+                // 套装促销-折扣固定值
+                reduce: '',
+                // 套装促销-折扣计算方式
+                promotionWayValue: 'percentage',
+                // 单品促销-折扣值
+                discount: '',
+                // 折扣商品列表
+                discountGdsList: [],
+                // 满减方式
                 reduceType: '递阶满减',
                 radioGroup: [
                     {label: 'all', value: '全部商品'},
                     {label: 'part', value: '部分商品'}
                 ],
-                fullReduction: [
+                // 递阶满减规则
+                fullReduceRule: [
+                    {full: '', reduce: ''}
+                ],
+                // 每满减规则
+                everyMinusRule: [
                     {full: '', reduce: ''}
                 ],
                 storeList: [
-                    {label: '全部', value: 'all'},
-                    {label: '国际科技园01L', value: 'gk01'},
-                    {label: '国际科技园02L', value: 'gk02'},
-                    {label: '国际科技园03L', value: 'gk03'}
+                    {label: '全部', value: 'all'}
                 ],
                 promotionWay: [
-                    {label: '套装折扣', value: 'discount'},
+                    {label: '套装折扣', value: 'percentage'},
                     {label: '套装减免', value: 'reduce'}
-                ],
-                promotionWayValue: 'discount'
+                ]
             };
         },
+        beforeMount() {
+            this.getStoreList();
+        },
         methods: {
-            chooseDate() {},
+            // 获取门店列表
+            getStoreList() {
+                this.$store.dispatch('getStoreList').then(res => {
+                    this.storeDetail = res.data;
+                    this.storeDetail.forEach(item => {
+                        this.storeList.push({label: item.storkName, value: item.storkName});
+                    });
+                });
+            },
+            chooseStart(date) {
+                this.startTime = date;
+            },
+            chooseEnd(date) {
+                this.endTime = date;
+            },
             removeRules(index) {
-                this.fullReduction.splice(index, 1);
+                this.fullReduceRule.splice(index, 1);
             },
             addRules() {
-                this.fullReduction.push({full: '', reduce: ''});
+                this.fullReduceRule.push({full: '', reduce: ''});
             },
             selectGoods() {},
-            getpromotionWay(value) {
-                this.promotionWayValue = value;
+            getDisGdsList(data) {
+                this.discountGdsList = data;
+            }
+        },
+        computed: {
+            calcTime() {
+                if (this.startTime == null || this.endTime == null) {
+                    return false;
+                }
+                let startTimes = this.startTime.substring(0, 10).split('-');
+                let endTimes = this.endTime.substring(0, 10).split('-');
+                let start = startTimes[1] + '-' + startTimes[2] + '-' + startTimes[0] + ' ' + this.startTime.substring(10, 19);
+                let end = endTimes[1] + '-' + endTimes[2] + '-' + endTimes[0] + ' ' + this.endTime.substring(10, 19);
+                let thisResult = (Date.parse(end) - Date.parse(start)) / 3600 / 1000;
+                if (thisResult < 0 || thisResult === 0) {
+                    return false;
+                } else if (thisResult > 0) {
+                    return true;
+                }
+            },
+            fullReduce() {
+                if (this.reduceType === '递阶满减') {
+                    return {name: '满赠促销', rule: this.fullReduceRule};
+                } else {
+                    return {name: '满赠促销', rule: this.everyMinusRule};
+                }
+            },
+            suit() {
+                if (this.promotionWayValue === 'percentage') {
+                    return {name: '套装促销', rule: {type: this.promotionWayValue, value: this.percentage}};
+                } else {
+                    return {name: '套装促销', rule: {type: this.promotionWayValue, value: this.reduce}};
+                }
             }
         },
         components: {

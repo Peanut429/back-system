@@ -1,0 +1,123 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/promotion/products
+{
+    "resultCode" : "1",
+    "message" : "获取产品成功！",
+    "data" : {
+        "dataList" : [ {
+            "id" : 11747,
+            "gdsName" : "燃茶500ml",
+            "productSku" : "133",
+            "productBarcode" : "6970399920118",
+            "gdsType" : "饮料",
+            "marketPrice" : 7.20,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "瓶",
+            "gdsNum" : 1
+        }, {
+            "id" : 11379,
+            "gdsName" : "康师傅冰红茶（柠檬味）",
+            "productSku" : "120",
+            "productBarcode" : "6920459905012",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 3.40,
+            "format" : "商品规格",
+            "productBrandName" : "B",
+            "unit" : "瓶",
+            "gdsNum" : 1
+        }, {
+            "id" : 11370,
+            "gdsName" : "蔓越莓软曲奇",
+            "productSku" : "111",
+            "productBarcode" : "6947929616520",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 5.20,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "个",
+            "gdsNum" : 1
+        }, {
+            "id" : 11371,
+            "gdsName" : "辣白菜正宗拉面",
+            "productSku" : "112",
+            "productBarcode" : "6920238081050",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 6.20,
+            "format" : "商品规格",
+            "productBrandName" : "B",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11368,
+            "gdsName" : "溜溜情人梅（凉果类蜜饯）",
+            "productSku" : "109",
+            "productBarcode" : "6923976111195",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 4.40,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11360,
+            "gdsName" : "康师傅茉莉清茶",
+            "productSku" : "101",
+            "productBarcode" : "6920459998434",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 2.40,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "瓶",
+            "gdsNum" : 0
+        }, {
+            "id" : 11364,
+            "gdsName" : "张君雅小妹妹和风鸡汁拉面条饼",
+            "productSku" : "105",
+            "productBarcode" : "4710199037010",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 8.60,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11369,
+            "gdsName" : "乐事薯片滋滋烤肉味",
+            "productSku" : "110",
+            "productBarcode" : "6924743915770",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 9.10,
+            "format" : "商品规格",
+            "productBrandName" : "B",
+            "unit" : "个",
+            "gdsNum" : 0
+        }, {
+            "id" : 11363,
+            "gdsName" : "康师傅海晶柠檬",
+            "productSku" : "104",
+            "productBarcode" : "6920459953433",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 2.90,
+            "format" : "商品规格",
+            "productBrandName" : "B",
+            "unit" : "瓶",
+            "gdsNum" : 0
+        }, {
+            "id" : 11380,
+            "gdsName" : "雪碧(柠檬味)600ml",
+            "productSku" : "121",
+            "productBarcode" : "6901939651209",
+            "gdsType" : "零食饮料",
+            "marketPrice" : 3.10,
+            "format" : "商品规格",
+            "productBrandName" : "A",
+            "unit" : "瓶",
+            "gdsNum" : 0
+        } ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 16,
+        "pages" : 2,
+        "totalGdsNum" : 0
+    }
+}
