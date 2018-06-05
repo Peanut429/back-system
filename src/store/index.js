@@ -61,9 +61,9 @@ const actions = {
             });
         });
     },
-    getGdsStore() {
+    getStoreDynamic() {
         return new Promise((resolve, reject) => {
-            axios.get('/api/gdsStore').then(response => {
+            axios.get('/api/storeDynamic').then(response => {
                 // console.log(response);
                 if (response.data.errno === 0) {
                     resolve(response.data.data);

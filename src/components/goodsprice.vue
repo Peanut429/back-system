@@ -54,11 +54,11 @@ export default {
               {title: 'SKU编码', key: 'productSku', width: 108},
               {title: '商品条形码', key: 'productBarcode', minWidth: 150},
               {title: '商品名称', key: 'gdsName', minWidth: 150, ellipsis: true},
-              {title: '商品类型', key: 'gdsType', Width: 70},
-              {title: '单位', key: 'unit', Width: 70},
+              {title: '商品类型', key: 'gdsType', width: 70},
+              {title: '单位', key: 'unit', width: 70},
               {
                   title: '零售价',
-                  Width: 70,
+                  width: 70,
                   render: (h, params) => {
                       if (this.rowIndex !== params.index) {
                           return h('span', params.row.marketPrice);

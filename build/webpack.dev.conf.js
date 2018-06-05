@@ -21,12 +21,15 @@ const appData = require('../userInfo.json')
 let admin = appData.admin
 let empolyee = appData.empolyee
 let storeList = appData.storeList
-let gdsStore = appData.gdsStore
+let storeDynamic = appData.storeDynamic
 let orderList = appData.orderList
 let gds = appData.gds
 let gdsPrice = appData.gdsPrice
 let product1 = appData.product1
 let product2 = appData.product2
+let mainType = appData.mainType
+let gdsStore = appData.gdsStore
+let checkDetail = appData.checkDetail
 
 let apiRouters = express.Router()
 app.use('/api', apiRouters)
@@ -61,10 +64,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               data: storeList
           })
       }),
-      app.get('/api/gdsStore', (req, res) => {
+      app.get('/api/storeDynamic', (req, res) => {
           res.json({
               errno: 0,
-              data: gdsStore
+              data: storeDynamic
           })
       }),
       app.get('/api/orderList', (req, res) => {
@@ -96,6 +99,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               errno: 0,
               data: product2
           });
+      }),
+      app.get('/api/mainType', (req, res) => {
+          res.json({
+              errno: 0,
+              data: mainType
+          })
+      }),
+      app.get('/api/gdsStore', (req, res) => {
+          res.json({
+              errno: 0,
+              data: gdsStore
+          })
+      }),
+      app.get('/api/checkDetail', (req, res) => {
+          res.json({
+              errno: 0,
+              data: checkDetail
+          })
       })
     },
     clientLogLevel: 'warning',

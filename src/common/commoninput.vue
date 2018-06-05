@@ -3,7 +3,7 @@
         <input
             v-if="inputType === 'text'"
             type="text"
-            :class="{'require': redLine}"
+            :class="{'require': redLine, 'disabled': disabled}"
             ref="text"
             :value="inputValue"
             :disabled="disabled"
@@ -13,19 +13,19 @@
         <input
             v-if="inputType === 'number'"
             type="number"
-            :class="{'require': redLine}"
+            :class="{'require': redLine, 'disabled': disabled}"
             ref="number"
             :value="inputValue"
             :disabled="disabled"
             @blur="blur"
             @input="input"
-            onkeypress="return (/[\d|\.|-]/.test(String.fromCharCode(event.keyCode || event.which)))"
         />
         <span ref="title" class="input-title" :class="{'active': active}">{{inputTitle}}</span>
     </div>
 </template>
 <script type="text/ecmascript-6">
 // onkeypress="return (/[\d\.]/.test(String.fromCharCode(event.keyCode || event.which)))"
+// onkeypress="return (/[\d|\.|-]/.test(String.fromCharCode(event.keyCode || event.which)))"
 export default {
     props: {
         inputValue: {
@@ -60,6 +60,9 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        format: {
+            type: String
         }
     },
     model: {
@@ -91,22 +94,19 @@ export default {
             }
         },
         input($event) {
+            if (this.format === 'int') {
+                $event.target.onkeypress = function(event) {
+                    return (/\d/.test(String.fromCharCode(event.keyCode || event.which)));
+                };
+                if ($event.target.value === '.') {
+                    $event.target.value = '';
+                }
+                if ($event.target.value !== '') {
+                    $event.target.value = parseInt($event.target.value).toString().substr(0, 2);
+                }
+            }
             this.$emit('getValue', $event.target.value);
         }
-        // getValue(e) {
-        // },
-        // replace() {
-        //     if (this.number === '') {
-        //         return false;
-        //     } else if (this.isInt) {
-        //         this.number = this.number.replace(/[^-\d.]/g, '');
-        //         this.number = parseInt(this.number);
-        //     } else {
-        //         /* eslint-disable no-useless-escape */
-        //         this.number = this.number.replace(/[^-\d\..]/g, '');
-        //         // this.number = parseFloat(this.number);
-        //     }
-        // }
     },
     computed: {
         active() {
@@ -162,4 +162,6 @@ export default {
                 border-bottom: 1px solid rgb(33, 150, 243)
             &:focus + .active
                 color: rgb(33, 150, 243)
+        .disabled
+            color: $grey-color
 </style>

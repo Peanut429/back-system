@@ -33,7 +33,7 @@
                 </router-link>
             </Col>
             <Col style="display: flex;justify-content: flex-end">
-                <Button type="ghost" :disabled="canPublish">发布活动</Button>
+                <Button type="ghost" :disabled="!canPublish">发布活动</Button>
             </Col>
         </Row>
         <goodslist ref="goodslist" :products="products" :total="total" @selectedGds="selectedGds"></goodslist>
@@ -144,10 +144,11 @@
         },
         computed: {
             canPublish() {
+                // console.log(this.calcTime);
                 if (this.dataIsRight && this.calcTime) {
-                    return false;
-                } else {
                     return true;
+                } else {
+                    return false;
                 }
             },
             dataIsRight() {
@@ -155,7 +156,7 @@
                     return true;
                 }
                 let flag = true;
-                if (this.data.name === '满赠促销') {
+                if (this.data.name === '满减促销') {
                     this.data.rule.forEach((item) => {
                         if (Number(item.full) <= Number(item.reduce)) {
                             flag = false;

@@ -91,7 +91,7 @@ export default {
         },
         // 获取库存
         getGdsStore() {
-            this.$store.dispatch('getGdsStore').then(res => {
+            this.$store.dispatch('getStoreDynamic').then(res => {
                 // console.log(res);
                 this.inventoryData = res.dataList;
             });

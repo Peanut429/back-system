@@ -1,0 +1,29 @@
+// Request URL: https://api.quixmart.com/quixmart-api/cnrrection/get?gds_store_id=19601&pageNo=1&pageSize=10
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "dataList" : [ {
+            "id" : 2551,
+            "gdsStoreId" : 19601,
+            "barcode" : "6920459905012",
+            "gdsname" : "康师傅冰红茶（柠檬味）",
+            "createTime" : "2018-05-26 16:02:17",
+            "updatenum" : -19,
+            "note" : "王婉 5.26"
+        }, {
+            "id" : 2428,
+            "gdsStoreId" : 19601,
+            "barcode" : "6920459905012",
+            "gdsname" : "康师傅冰红茶（柠檬味）",
+            "createTime" : "2018-05-19 10:26:05",
+            "updatenum" : -1,
+            "note" : "库存调整"
+        } ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 2,
+        "pages" : 1,
+        "totalGdsNum" : 0
+    }
+}
