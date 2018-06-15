@@ -1,0 +1,30 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/outstore/condition?bill=1&id=75551&storeId=10613
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : null,
+        "outId" : null,
+        "productSku" : "127",
+        "gdsName" : "三得利沁柠水柠檬味550ml",
+        "format" : "商品规格",
+        "gdsModel" : null,
+        "createBy" : null,
+        "createTime" : null,
+        "updateBy" : null,
+        "updateTime" : null,
+        "quantity" : 2,
+        "gdsId" : null,
+        "delFlag" : null,
+        "productBrandName" : "A",
+        "unit" : "瓶",
+        "productBarcode" : "6921581540089",
+        "channelId" : null,
+        "goodsChannelId" : null,
+        "actualDelivery" : null,
+        "gdsCategory" : null,
+        "deliveryWeight" : null,
+        "actualDeliveryWeight" : null,
+        "priceType" : null
+    } ]
+}

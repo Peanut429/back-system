@@ -5,35 +5,35 @@
             <Col :xs="{span: 24}" :md="{span: 12}">
                 <Row :gutter="16">
                     <Col span="8">
-                        <selector listName="所在门店" :list="storeList" :selected="storeList[0].value"></selector>
+                        <selector v-model="searchInfo.storeName" listName="所在门店" :list="storeList"></selector>
                     </Col>
                     <Col span="8">
-                        <commoninput inputTitle="订单编号"></commoninput>
+                        <commoninput v-model="searchInfo.orderCode" inputTitle="订单编号"></commoninput>
                     </Col>
                     <Col span="8">
-                        <commoninput inputTitle="支付宝/微信订单号"></commoninput>
+                        <commoninput v-model="searchInfo.tradeNo" inputTitle="支付宝/微信订单号"></commoninput>
                     </Col>
                 </Row>
             </Col>
             <Col :xs="{span: 24}" :md="{span: 12}" class="date-col">
                 <Row :gutter="16" type="flex">
                     <Col span="7">
-                        <DatePicker type="date" on-change="startTime" placeholder="销售日期"></DatePicker>
+                        <DatePicker :value="searchInfo.saleDate" type="date" on-change="startTime" placeholder="销售日期"></DatePicker>
                     </Col>
                     <Col class="date-to" span="2">
                         <span>至</span>
                     </Col>
                     <Col span="7">
-                        <DatePicker type="date" on-change="endTime" placeholder=""></DatePicker>
+                        <DatePicker :value="searchInfo.endSaleDate" type="date" on-change="endTime" placeholder=""></DatePicker>
                     </Col>
                     <Col span="8">
-                        <DatePicker type="date" on-change="paymentTime" placeholder="付款日期"></DatePicker>
+                        <DatePicker :value="searchInfo.paymentDate" type="date" on-change="paymentTime" placeholder="付款日期"></DatePicker>
                     </Col>
                 </Row>
             </Col>
         </Row>
         <Row>
-            <search></search>
+            <search @clear="clear" @search="search"></search>
         </Row>
         <Row type="flex" align="middle" justify="end">
             <div class="action-col">
@@ -45,13 +45,24 @@
                 <span>导出详情</span>
             </div>
         </Row>
-        <Table :columns="columns">
+        <Table class="table" :columns="columns" :data="data">
             <template slot="footer">
                 <div class="pages">
                     <Page :total="100" size="small"></Page>
                 </div>
             </template>
         </Table>
+        <Modal
+            v-model="msgModal"
+            title="订单备注"
+            width="500"
+            ok-text="保存"
+            cancel-text="取消"
+            :mask-closable="false"
+            @on-ok="subMsg"
+        >
+            <Input v-model="orderMsg" type="textarea"></Input>
+        </Modal>
     </div>
 </template>
 
@@ -62,25 +73,103 @@
     import search from '../common/search';
     export default {
         data() {
-          return {
-              storeList: [
-                  {label: '全部', value: 'all'},
-                  {label: '国际科技园01L', value: 'gk01'},
-                  {label: '国际科技园02L', value: 'gk02'},
-                  {label: '国际科技园03L', value: 'gk03'}
-              ],
-              columns: [
-                  {title: '订单编号', key: 'orderNumber'},
-                  {title: '支付宝/微信订单号', key: 'AWNumber'},
-                  {title: '购买门店', key: 'storeAddress'},
-                  {title: '付款方式', key: 'paymentType'},
-                  {title: '订单总额', key: 'orderAmount'},
-                  {title: '销售时间', key: 'sellTime'},
-                  {title: '付款时间', key: 'paymentTime'},
-                  {title: '订单状态', key: 'orderState'},
-                  {title: '操作', key: 'actions'}
-              ]
+            return {
+                msgModal: false,
+                orderMsg: '',
+                searchInfo: {
+                    storeName: 'all',
+                    orderCode: '',
+                    tradeNo: '',
+                    saleDate: '',
+                    endSaleDate: '',
+                    paymentDate: ''
+                },
+                storeList: [
+                    {label: '全部', value: 'all'}
+                ],
+                columns: [
+                    {title: '订单编号', key: 'orderCode', width: 155, fixed: 'left'},
+                    {title: '支付宝/微信订单号', key: 'tradeNo', width: 150, ellipsis: true},
+                    {title: '购买门店', key: 'storeName', minWidth: 108, ellipsis: true},
+                    {title: '付款方式', key: 'paymentType', width: 80},
+                    {title: '订单总额', key: 'orderAmount', width: 70, align: 'center'},
+                    {title: '销售时间', key: 'saleDate', minWidth: 150},
+                    {title: '付款时间', key: 'paymentDate', minWidth: 150},
+                    {title: '订单状态', key: 'paymentStatus', width: 100},
+                    {
+                        title: '操作',
+                        width: 100,
+                        fixed: 'right',
+                        render: (h, params) => {
+                            return h('div', [
+                                h('Button', {
+                                    props: {
+                                        type: 'text',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.$router.push('/home/order-detail:' + params.row.orderCode);
+                                        }
+                                    }
+                                }, '详情'),
+                                h('Button', {
+                                    props: {
+                                        type: 'text',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.msgModal = true;
+                                        }
+                                    }
+                                }, '备注')
+                            ]);
+                        }
+                    }
+                ],
+                data: []
           };
+        },
+        beforeMount() {
+            this.getStoreList();
+            this.getOrderList();
+        },
+        methods: {
+            // 获取门店列表
+            getStoreList() {
+                this.$store.dispatch('getStoreList').then(res => {
+                    this.storeDetail = res.data;
+                    this.storeDetail.forEach(item => {
+                        this.storeList.push({label: item.storkName, value: item.storkName});
+                    });
+                });
+            },
+            // 获取订单信息
+            getOrderList() {
+                this.$axios.get('/api/orderlist').then(res => {
+                    if (res.data.errno === 0) {
+                        this.data = res.data.data.dataList;
+                    }
+                });
+            },
+            clear() {
+                this.searchInfo = {
+                    storeName: 'all',
+                    orderCode: '',
+                    tradeNo: '',
+                    saleDate: '',
+                    endSaleDate: '',
+                    paymentDate: ''
+                };
+            },
+            search() {},
+            close(item) {
+                this[item] = false;
+            },
+            subMsg() {
+                this.orderMsg = '';
+            }
         },
         components: {
             commontitle,
@@ -93,35 +182,11 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
     .order-list
-        /*.date-col
-            padding-top: 22px
-            .ivu-date-picker
-                width: 100%
-                .ivu-input
-                    height: 36px
-                    border: none
-                    border-radius: 0
-                    border-bottom: 1px solid rgba(0,0,0,0.1)
-                    background-color: transparent
-                    font-size: 14px
-                    &:focus
-                        border-bottom: 1px solid rgb(33, 150, 243)*/
-        /*.action-col
-            display: flex
-            align-items: center
-            padding: 30px 0
-            cursor: pointer
-            font-size: 15px
-            user-select: none
-            &+.action-col
-                margin-left: 30px
-            &:hover
-                color: #ff9c10
-            .icon
-                margin-right: 10px
-                color: currentColor*/
-        /*.pages
-            display flex
-            justify-content center
-            align-items center*/
+        .table
+            .ivu-table-fixed-right
+                thead
+                    .ivu-table-cell
+                        height: 40px
+                        line-height: 40px
+                        padding-left: 20px
 </style>

@@ -359,6 +359,7 @@
                     &:focus
                         border-bottom: 1px solid rgb(33, 150, 243)*/
         .return-btn
+            display: inline-block
             height: 32px
             line-height: 32px
             width: 76px

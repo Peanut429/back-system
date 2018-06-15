@@ -4,6 +4,9 @@ body, html
   line-height: 1
   font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback'
 
+/* input蓝色边框去除 */
+.ivu-input:focus
+    box-shadow: none
 /* 日期选择器的公用样式 */
 .date-to
     align-self: flex-end
@@ -15,6 +18,16 @@ body, html
     padding-top: 22px
     .ivu-input
         height: 36px
+        border: none
+        border-radius: 0
+        border-bottom: 1px solid rgba(0,0,0,0.1)
+        background-color: transparent
+        font-size: 14px
+        &:focus
+            border-bottom: 1px solid rgb(33, 150, 243)
+.productionDate
+    .ivu-input
+        height: 100%
         border: none
         border-radius: 0
         border-bottom: 1px solid rgba(0,0,0,0.1)
@@ -52,6 +65,12 @@ body, html
         justify-content center
         align-items center
         user-select: none
+    .ivu-table-cell
+        padding: 0
+        padding-left: 10px
+        .ivu-btn-text
+            color: #2196f3
+            font-size: 14px
 
 /* Message */
 .ivu-message

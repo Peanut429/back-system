@@ -1,0 +1,47 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/orderDetail/selectByCode?orderId=00281d201805230056&pageNo=1&pageSize=10&storeId=10269
+{
+    "resultCode" : "1",
+    "message" : "获取数据成功",
+    "data" : {
+        "dataList" : [ {
+            "createTime" : "2018-05-23 21:51:26",
+            "paymentTime" : "2018-05-23 21:51:30",
+            "tradeNo" : "2018052321001004350280605630",
+            "orderId" : "00281d201805230056",
+            "storeName" : "有轨基地",
+            "userTel" : "18114435940",
+            "userName" : "jinstk",
+            "orderTotal" : 9.3,
+            "orderPrice" : 9.3,
+            "promotionType" : [ ],
+            "orderDetailVO" : [ {
+                "goodsId" : null,
+                "productSku" : "139",
+                "productName" : "三得利利趣咖啡",
+                "productBarcode" : "6921581540270",
+                "productFormat" : "商品规格",
+                "productUnit" : "瓶",
+                "retailPrice" : 5.3,
+                "number" : 1,
+                "productBrandName" : "A",
+                "productType" : "零食饮料"
+            }, {
+                "goodsId" : null,
+                "productSku" : "138",
+                "productName" : "营养快线水果牛奶饮品菠萝味",
+                "productBarcode" : "6902083898625",
+                "productFormat" : "商品规格",
+                "productUnit" : "个",
+                "retailPrice" : 4.0,
+                "number" : 1,
+                "productBrandName" : "B",
+                "productType" : "饮料"
+            } ]
+        } ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 2,
+        "pages" : 1,
+        "totalGdsNum" : 0
+    }
+}

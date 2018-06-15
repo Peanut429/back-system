@@ -1,0 +1,32 @@
+// Request URL: https://api.quixmart.com/quixmart-api/attachment?id=R00281d201806090002
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 907,
+        "serviceId" : "R00281d201806090002",
+        "name" : "2018060916444801.png",
+        "type" : "1",
+        "path" : "2018060916444801.png",
+        "format" : "png",
+        "remark" : null,
+        "isDelete" : "0",
+        "createTime" : "2018-06-09 16:44:48",
+        "createBy" : null,
+        "updateTime" : null,
+        "updateBy" : null
+    }, {
+        "id" : 908,
+        "serviceId" : "R00281d201806090002",
+        "name" : "2018060916444802.jpg",
+        "type" : "1",
+        "path" : "2018060916444802.jpg",
+        "format" : "jpg",
+        "remark" : null,
+        "isDelete" : "0",
+        "createTime" : "2018-06-09 16:44:48",
+        "createBy" : null,
+        "updateTime" : null,
+        "updateBy" : null
+    } ]
+}

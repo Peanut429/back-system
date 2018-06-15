@@ -172,15 +172,6 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
     .goods-price
-        /*.table
-            box-shadow: 1px 1px 2px rgba(0, 0, 0, .1)
-            font-size: 14px
-            .table-title
-                padding-left: 18px
-            .pages
-                display: flex
-                justify-content: center
-                align-items: center*/
         .table
             .ivu-table-cell
                 padding: 0

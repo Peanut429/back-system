@@ -54,7 +54,6 @@ const actions = {
     getStoreList({commit}) {
         return new Promise((resolve, reject) => {
             axios.get('/api/storeList').then((response) => {
-                // console.log(response);
                 if (response.data.errno === 0) {
                     resolve(response.data);
                 }
@@ -64,7 +63,6 @@ const actions = {
     getStoreDynamic() {
         return new Promise((resolve, reject) => {
             axios.get('/api/storeDynamic').then(response => {
-                // console.log(response);
                 if (response.data.errno === 0) {
                     resolve(response.data.data);
                 }
@@ -74,7 +72,6 @@ const actions = {
     getOrderList() {
         return new Promise((resolve, reject) => {
             axios.get('/api/orderList').then(response => {
-                // console.log(response);
                 if (response.data.errno === 0) {
                     resolve(response.data.data);
                 }

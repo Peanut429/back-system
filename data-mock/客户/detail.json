@@ -1,0 +1,25 @@
+//Request URL: https://api.quixmart.com/quixmart-api/api/order/customerListDetailed?pageNo=1&pageSize=10&storeId=10269&userAccount=2088212232341644
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "dataList" : [ {
+            "productName" : "康师傅超级桶红烧牛肉面",
+            "orderAbnormal" : false,
+            "userAccount" : "2088212232341644",
+            "paymentTypeIdDESC" : "其他",
+            "paymentStatusDESC" : "付款失败",
+            "orderCode" : "00281d201805230035",
+            "storeID" : 10269,
+            "storeName" : "有轨基地",
+            "orderAmount" : 5.5,
+            "paymentDate" : "2018-05-23 17:35:54",
+            "paymentStatus" : "已付款"
+        } ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 1,
+        "pages" : 1,
+        "totalGdsNum" : 0
+    }
+}

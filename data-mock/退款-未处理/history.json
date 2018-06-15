@@ -1,0 +1,15 @@
+//Request URL: https://api.quixmart.com/quixmart-api/refund/history?refundOrderId=R00281d201806100001
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 21713,
+        "bizFlowId" : "R00281d201806090002",
+        "bizTypeId" : 1001,
+        "operateId" : 1001,
+        "operatorTypeId" : 1001,
+        "comment" : "买的三得利乌龙茶，标价3.3元",
+        "createBy" : 10527,
+        "createTime" : "2018-06-09 16:44:48"
+    } ]
+}

@@ -3,35 +3,35 @@
         <commontitle titleName="退货处理/已处理"></commontitle>
         <Row :gutter="16">
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <selector listName="退货门店" :list="storeList" :selected="storeList[0].value"></selector>
+                <selector v-model="searchInfo.storeId" listName="退货门店" :list="storeList"></selector>
             </Col>
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <commoninput inputTitle="退货编号"></commoninput>
+                <commoninput v-model="searchInfo.id" inputTitle="退货编号"></commoninput>
             </Col>
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <commoninput inputTitle="原订单号"></commoninput>
+                <commoninput v-model="searchInfo.orderId" inputTitle="原订单号"></commoninput>
             </Col>
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <commoninput inputTitle="退货商品"></commoninput>
+                <commoninput v-model="searchInfo.productName" inputTitle="退货商品"></commoninput>
             </Col>
         </Row>
         <Row :gutter="16" type="flex">
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <DatePicker type="date" @on-change="startTime" placeholder="申请时间"></DatePicker>
+                <DatePicker :value="searchInfo.createStartTime" type="date" @on-change="startTime" placeholder="申请时间"></DatePicker>
             </Col>
             <Col class="date-to" span="1">至</Col>
             <Col :xs="{span: 11}" :md="{span: 5}">
-                <DatePicker type="date" @on-change="endTime" placeholder=""></DatePicker>
+                <DatePicker :value="searchInfo.createEndTime" type="date" @on-change="endTime" placeholder=""></DatePicker>
             </Col>
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <selector listName="状态" :list="state" :selected="state[0].value"></selector>
+                <selector v-model="searchInfo.status" listName="状态" :list="status"></selector>
             </Col>
             <Col :xs="{span: 12}" :md="{span: 6}">
-                <DatePicker type="date" @on-change="processTime" placeholder="处理时间"></DatePicker>
+                <DatePicker :value="searchInfo.updateTime" type="date" @on-change="processTime" placeholder="处理时间"></DatePicker>
             </Col>
         </Row>
         <Row>
-            <search></search>
+            <search @clear="clear" @search="search"></search>
         </Row>
         <Row type="flex" align="middle" justify="end">
             <div class="action-col">
@@ -43,10 +43,15 @@
                 <span>导出详情</span>
             </div>
         </Row>
-        <Table class="table" :columns="columns">
+        <Table
+            class="table"
+            :columns="columns"
+            :data="data"
+            @on-row-click="showDetail"
+        >
             <template slot="footer">
                 <div class="pages">
-                    <Page show-total size="small" :total="1"></Page>
+                    <Page show-total size="small" :total="total"></Page>
                 </div>
             </template>
         </Table>
@@ -61,43 +66,121 @@
     export default {
         data() {
           return {
+              searchInfo: {
+                  storeId: 'all',
+                  id: '',
+                  orderId: '',
+                  productName: '',
+                  createStartTime: '',
+                  createEndTime: '',
+                  status: '2',
+                  updateTime: ''
+              },
               storeList: [
-                  {label: '全部', value: 'all'},
-                  {label: '国际科技园01L', value: 'gk01'},
-                  {label: '国际科技园02L', value: 'gk02'},
-                  {label: '国际科技园03L', value: 'gk03'}
+                  {label: '全部', value: 'all'}
               ],
-              state: [
-                  {label: '所有已处理订单', value: 'all'},
-                  {label: '审核驳回', value: '审核驳回'},
-                  {label: '待寄出', value: '待寄出'},
-                  {label: '已寄出', value: '已寄出'},
-                  {label: '已收货', value: '已收货'},
-                  {label: '待深蓝审核', value: '待深蓝审核'},
-                  {label: '深蓝审核驳回', value: '深蓝审核驳回'},
-                  {label: '退款中', value: '退款中'},
-                  {label: '深蓝退款中', value: '深蓝退款中'},
-                  {label: '退款完成', value: '退款完成'},
-                  {label: '深蓝退款完成', value: '深蓝退款完成'},
-                  {label: '已关闭', value: '已关闭'}
+              status: [
+                  {label: '所有已处理订单', value: '2'}
               ],
               columns: [
-                  {title: '退货编号', key: 'srNumber'},
-                  {title: '原订单号', key: 'orderNumber'},
-                  {title: '退货商品', key: 'barcode'},
-                  {title: '退货门店', key: 'storeAddress'},
-                  {title: '退货理由', key: 'returnReason'},
-                  {title: '申请时间', key: 'applicationTime'},
-                  {title: '处理时间', key: 'processTime'},
-                  {title: '价格', key: 'price'},
-                  {title: '状态', key: 'processResult'}
-              ]
+                  {title: '退货编号', key: 'id', width: 165, fixed: 'left'},
+                  {title: '原订单号', key: 'orderId', minWidth: 165},
+                  {title: '退货商品', key: 'productName', minWidth: 150, ellipsis: true},
+                  {title: '退货门店', key: 'storeName', minWidth: 100, ellipsis: true},
+                  {title: '退货理由', key: 'reason', minWidth: 150, ellipsis: true},
+                  {title: '申请时间', key: 'createTime', minWidth: 150},
+                  {title: '处理时间', key: 'updateTime', minWidth: 150},
+                  {
+                      title: '价格',
+                      key: 'amount',
+                      minWidth: 80,
+                      align: 'center',
+                      render: (h, params) => {
+                          return h('span', params.row.amount.toFixed(2));
+                      }
+                  },
+                  {
+                      title: '状态',
+                      width: 80,
+                      ellipsis: true,
+                      fixed: 'right',
+                      render: (h, params) => {
+                          return h('span', {
+                              'class': {
+                                  reject: params.row.status === '1002',
+                                  pass: params.row.status === '1010',
+                                  close: params.row.status === '1020',
+                                  refund: params.row.status === '1009'
+                              }
+                          }, params.row.statusName);
+                      }
+                  }
+              ],
+              data: [],
+              total: 0
           };
         },
+        beforeMount() {
+            this.getStoreList();
+            this.getStatus();
+            this.getRefundInfo();
+        },
         methods: {
-            startTime() {},
-            endTime() {},
-            processTime() {}
+            // 获取门店列表
+            getStoreList() {
+                this.$store.dispatch('getStoreList').then(res => {
+                    let storeDetail = res.data;
+                    storeDetail.forEach(item => {
+                        this.storeList.push({label: item.storkName, value: item.id});
+                    });
+                });
+            },
+            // 获取处理状态信息
+            getStatus() {
+                this.$axios.get('/api/status').then(res => {
+                    if (res.data.errno === 0) {
+                        let data = res.data.data;
+                        data.forEach(item => {
+                            this.status.push({label: item.value, value: item.key});
+                        });
+                    }
+                });
+            },
+            // 获取已处理退货信息
+            getRefundInfo() {
+                this.$axios.get('/api/refund').then(res => {
+                    if (res.data.errno === 0) {
+                        this.data = res.data.data.dataList;
+                        this.total = res.data.data.total;
+                    }
+                });
+            },
+            startTime(date) {
+                this.searchInfo.createStartTime = date;
+            },
+            endTime(date) {
+                this.searchInfo.createEndTime = date;
+            },
+            processTime(date) {
+                this.searchInfo.updateTime = date;
+            },
+            clear() {
+                this.searchInfo = {
+                    productName: '',
+                    storeId: 'all',
+                    status: '2',
+                    id: '',
+                    orderId: '',
+                    createStartTime: '',
+                    createEndTime: '',
+                    updateTime: ''
+                };
+            },
+            search() {},
+            showDetail(data, index) {
+                // console.log(data, index);
+                this.$router.push('/home/processed-detail:' + data.id);
+            }
         },
         components: {
             commontitle,
@@ -109,5 +192,14 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
+    .return-processed
+        .ivu-table
+            .reject
+                color: #d32f2f
+            .pass
+                color: #388e3c
+            .close
+                color: black
+            .refund
+                color: #f57c00
 </style>

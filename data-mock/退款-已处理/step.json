@@ -1,0 +1,6 @@
+// Request URL: https://api.quixmart.com/quixmart-api/refund/step?refundOrderId=R00281d201804120002
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : { }
+}

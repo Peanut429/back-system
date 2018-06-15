@@ -20,6 +20,19 @@
             @blur="blur"
             @input="input"
         />
+        <Input
+            class="textarea"
+            type="textarea"
+            v-if="inputType === 'textarea'"
+            :value="inputValue"
+            :class="{'require': redLine, 'disabled': disabled}"
+            ref="textarea"
+            :disabled="disabled"
+            :autosize="{minRows, maxRows}"
+            :maxlength="maxlength"
+            @on-blur="blur"
+            @on-change="input"
+        ></Input>
         <span ref="title" class="input-title" :class="{'active': active}">{{inputTitle}}</span>
     </div>
 </template>
@@ -49,13 +62,16 @@ export default {
             default: false
         },
         maxlength: {
-            type: [String, Number]
+            type: Number,
+            default: 200
         },
-        max: {
-            type: [String, Number]
+        maxRows: {
+            type: Number,
+            default: 10
         },
-        min: {
-            type: [String, Number]
+        minRows: {
+            type: Number,
+            default: 1
         },
         disabled: {
             type: Boolean,
@@ -115,6 +131,7 @@ export default {
             } else if (this.inputValue != null && this.inputValue !== '') {
                 return true;
             }
+            return false;
         }
     }
 };
@@ -125,7 +142,7 @@ export default {
     .input
         position: relative
         margin: 28px 0 0
-        height: 36px
+        /*height: 36px*/
         .input-title
             overflow hidden
             position: absolute
@@ -164,4 +181,16 @@ export default {
                 color: rgb(33, 150, 243)
         .disabled
             color: $grey-color
+        .textarea
+            .ivu-input
+                resize: none
+                border: none
+                border-bottom: 1px solid rgba(0, 0, 0, .12)
+                border-radius: 0
+                background-color: transparent
+                &:focus
+                    border-bottom: 1px solid rgb(33, 150, 243)
+        .require
+            .ivu-input
+                border-bottom: 1px solid rgb(221,44,0)
 </style>

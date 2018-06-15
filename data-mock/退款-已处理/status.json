@@ -1,0 +1,39 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/approvals/refund/handled/status
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "key" : "1002",
+        "value" : "审核驳回"
+    }, {
+        "key" : "1003",
+        "value" : "待邮寄"
+    }, {
+        "key" : "1004",
+        "value" : "已寄出"
+    }, {
+        "key" : "1005",
+        "value" : "已收货"
+    }, {
+        "key" : "1006",
+        "value" : "待深兰审核"
+    }, {
+        "key" : "1007",
+        "value" : "深兰审核驳回"
+    }, {
+        "key" : "1008",
+        "value" : "退款中"
+    }, {
+        "key" : "1009",
+        "value" : "深兰退款中"
+    }, {
+        "key" : "1010",
+        "value" : "退款完成"
+    }, {
+        "key" : "1011",
+        "value" : "深兰退款完成"
+    }, {
+        "key" : "1020",
+        "value" : "已关闭"
+    } ]
+}

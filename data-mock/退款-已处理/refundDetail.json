@@ -1,0 +1,50 @@
+//Request URL: https://api.quixmart.com/quixmart-api/refundDetail?id=R00281d201804120002&pageNo=1&pageSize=6
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "id" : "R00281d201804120002",
+        "orderId" : "00281d201804120019",
+        "brandId" : 196,
+        "brandName" : null,
+        "storeId" : 10269,
+        "memberOid" : "2088712649032002",
+        "storeName" : "有轨基地",
+        "productName" : "三得利利趣咖啡",
+        "reason" : "我只拿了一瓶乌龙茶！",
+        "status" : "1011",
+        "statusName" : null,
+        "amount" : 4.9,
+        "createTime" : "2018-04-12 12:15:52",
+        "updateTime" : "2018-04-17 17:47:56",
+        "fileNumber" : 0,
+        "mobile" : "13382140610",
+        "expressCompany" : null,
+        "expressNo" : null,
+        "auditContent" : "您拿取了两瓶乌龙茶，并且在发现识别错误后，未放回商品，抱歉不能退款",
+        "coodinateContent" : "同意",
+        "sumNum" : 1,
+        "tradeNo" : "2018041221001004000548638429",
+        "paymentStatus" : null,
+        "detailList" : {
+            "dataList" : [ {
+                "id" : 7792,
+                "refundId" : "R00281d201804120002",
+                "productSku" : "139",
+                "productName" : "三得利利趣咖啡",
+                "productFormat" : "商品规格",
+                "productModel" : "商品型号",
+                "productBarcode" : "6921581540270",
+                "productBrandName" : "A",
+                "productUnit" : "瓶",
+                "salePrice" : 4.9,
+                "number" : 1
+            } ],
+            "pageNo" : 1,
+            "pageSize" : 6,
+            "total" : 1,
+            "pages" : 1,
+            "totalGdsNum" : 0
+        }
+    }
+}

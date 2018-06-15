@@ -30,6 +30,22 @@ let product2 = appData.product2
 let mainType = appData.mainType
 let gdsStore = appData.gdsStore
 let checkDetail = appData.checkDetail
+let intoStore = appData.intoStore
+let intocondition = appData.intocondition
+let outStore = appData.outStore
+let outcondition = appData.outcondition
+let orders = appData.orderlist
+let selectedByCode = appData.selectedByCode
+let customerList = appData.customerList
+let customerListDetail = appData.customerListDetail
+let unrefund = appData.unrefund
+let history = appData.history
+let refundDetail = appData.refundDetail
+let attachment = appData.attachment
+let refund = appData.refund
+let status = appData.status
+let processedHistory = appData.processedHistory
+let processedRefundDetail = appData.processedRefundDetail
 
 let apiRouters = express.Router()
 app.use('/api', apiRouters)
@@ -116,6 +132,102 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           res.json({
               errno: 0,
               data: checkDetail
+          })
+      }),
+      app.get('/api/intoStore', (req, res) => {
+          res.json({
+              errno: 0,
+              data: intoStore
+          })
+      }),
+      app.get('/api/condition', (req, res) => {
+          res.json({
+              errno: 0,
+              data: intocondition
+          })
+      }),
+      app.get('/api/outStore', (req, res) => {
+          res.json({
+              errno: 0,
+              data: outStore
+          })
+      }),
+      app.get('/api/outcondition', (req, res) => {
+          res.json({
+              errno: 0,
+              data: outcondition
+          })
+      }),
+      app.get('/api/orders', (req, res) => {
+          res.json({
+              errno: 0,
+              data: orders
+          })
+      }),
+      app.get('/api/selectedByCode', (req, res) => {
+          res.json({
+              errno: 0,
+              data: selectedByCode
+          })
+      }),
+      app.get('/api/customerList', (req, res) => {
+          res.json({
+              errno: 0,
+              data: customerList
+          })
+      }),
+      app.get('/api/customerListDetail', (req, res) => {
+          res.json({
+              errno: 0,
+              data: customerListDetail
+          })
+      }),
+      app.get('/api/unrefund', (req, res) => {
+          res.json({
+              errno: 0,
+              data: unrefund
+          })
+      }),
+      app.get('/api/history', (req, res) => {
+          res.json({
+              errno: 0,
+              data: history
+          })
+      }),
+      app.get('/api/refundDetail', (req, res) => {
+          res.json({
+              errno: 0,
+              data: refundDetail
+          })
+      }),
+      app.get('/api/attachment', (req, res) => {
+          res.json({
+              errno: 0,
+              data: attachment
+          })
+      }),
+      app.get('/api/refund', (req, res) => {
+          res.json({
+              errno: 0,
+              data: refund
+          })
+      }),
+      app.get('/api/status', (req, res) => {
+          res.json({
+              errno: 0,
+              data: status
+          })
+      }),
+      app.get('/api/processedHistory', (req, res) => {
+          res.json({
+              errno: 0,
+              data: processedHistory
+          })
+      }),
+      app.get('/api/processedRefundDetail', (req, res) => {
+          res.json({
+              errno: 0,
+              data: processedRefundDetail
           })
       })
     },

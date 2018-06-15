@@ -31,7 +31,7 @@
                 default: 'large'
             },
             selected: {
-                type: String,
+                type: [String, Number],
                 default: ''
             },
             disabled: {

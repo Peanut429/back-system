@@ -150,6 +150,20 @@ export const asyncRouter = [
                 component: (resolve) => require(['../components/orderlist.vue'], resolve)
             },
             {
+                path: 'order-detail:orderCode',
+                name: 'order-detail',
+                group: 'order',
+                groupTitle: '订单详情',
+                icon: 'ios-list',
+                hidden: true,
+                meta: {
+                    title: '订单详情',
+                    permission: 'order-list',
+                    active: 'order-list'
+                },
+                component: (resolve) => require(['../components/orderdetail.vue'], resolve)
+            },
+            {
                 path: 'user-list',
                 name: 'user-list',
                 group: 'user',
@@ -174,6 +188,20 @@ export const asyncRouter = [
                 component: (resolve) => require(['../components/returnunprocess.vue'], resolve)
             },
             {
+                path: 'untreated-detail:id',
+                name: 'untreated-detail',
+                group: 'returnProcess',
+                groupTitle: '退货处理',
+                icon: 'arrow-return-left',
+                hidden: true,
+                meta: {
+                    title: '退货申请详情',
+                    permission: 'return-unprocess',
+                    active: 'return-unprocess'
+                },
+                component: (resolve) => require(['../components/untreateddetail.vue'], resolve)
+            },
+            {
                 path: 'return-processed',
                 name: 'return-processed',
                 group: 'returnProcess',
@@ -184,6 +212,20 @@ export const asyncRouter = [
                     permission: 'return-processed'
                 },
                 component: (resolve) => require(['../components/returnprocessed.vue'], resolve)
+            },
+            {
+                path: 'processed-detail:id',
+                name: 'processed-detail',
+                group: 'returnProcess',
+                groupTitle: '退货处理',
+                icon: 'arrow-return-left',
+                hidden: true,
+                meta: {
+                    title: '退货处理详情',
+                    permission: 'return-processed',
+                    active: 'return-processed'
+                },
+                component: (resolve) => require(['../components/processeddetail.vue'], resolve)
             },
             {
                 path: 'equipment-manage',

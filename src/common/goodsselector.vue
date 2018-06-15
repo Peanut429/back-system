@@ -238,6 +238,7 @@
                         .ivu-table-cell
                             padding-left: 27px
         .return-btn
+            display: inline-block
             height: 32px
             line-height: 32px
             width: 76px

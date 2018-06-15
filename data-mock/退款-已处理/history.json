@@ -1,0 +1,50 @@
+// Request URL: https://api.quixmart.com/quixmart-api/refund/history?refundOrderId=R00281d201804120002
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 15884,
+        "bizFlowId" : "R00281d201804120002",
+        "bizTypeId" : 1001,
+        "operateId" : 2004,
+        "operatorTypeId" : 1004,
+        "createTime" : "2018-04-17 17:47:56"
+    }, {
+        "id" : 15883,
+        "bizFlowId" : "R00281d201804120002",
+        "bizTypeId" : 1001,
+        "operateId" : 2002,
+        "operatorTypeId" : 1003,
+        "comment" : "同意\n",
+        "createBy" : 205,
+        "createName" : "slth001",
+        "createTime" : "2018-04-17 17:47:54"
+    }, {
+        "id" : 15805,
+        "bizFlowId" : "R00281d201804120002",
+        "bizTypeId" : 1001,
+        "operateId" : 2001,
+        "operatorTypeId" : 1001,
+        "createBy" : 8856,
+        "createTime" : "2018-04-16 19:17:46"
+    }, {
+        "id" : 15645,
+        "bizFlowId" : "R00281d201804120002",
+        "bizTypeId" : 1001,
+        "operateId" : 1004,
+        "operatorTypeId" : 1002,
+        "comment" : "您拿取了两瓶乌龙茶，并且在发现识别错误后，未放回商品，抱歉不能退款",
+        "createBy" : 76,
+        "createName" : "liu",
+        "createTime" : "2018-04-14 11:39:58"
+    }, {
+        "id" : 15491,
+        "bizFlowId" : "R00281d201804120002",
+        "bizTypeId" : 1001,
+        "operateId" : 1001,
+        "operatorTypeId" : 1001,
+        "comment" : "我只拿了一瓶乌龙茶！",
+        "createBy" : 8856,
+        "createTime" : "2018-04-12 12:15:52"
+    } ]
+}

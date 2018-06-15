@@ -30,7 +30,7 @@
         <Table :columns="columns" class="table" :data="data">
             <template slot="footer">
                 <div class="footer">
-                    <p class="footer-amount">库存合计总数：44</p>
+                    <p class="footer-amount">库存合计总数：{{totalGdsNum}}</p>
                     <div class="pages">
                         <Page size="small" show-total :total="total"></Page>
                     </div>
@@ -253,6 +253,8 @@
               ],
               data: [],
               total: 0,
+              // 库存合计总数
+              totalGdsNum: 0,
               // 校正详情信息
               checkDetailInfo: [],
               detailColumns: [
@@ -287,6 +289,7 @@
                     if (res.data.errno === 0) {
                         this.data = res.data.data.dataList;
                         this.total = res.data.data.total;
+                        this.totalGdsNum = res.data.data.totalGdsNum;
                     }
                 });
             },

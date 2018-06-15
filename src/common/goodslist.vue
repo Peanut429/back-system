@@ -1,28 +1,30 @@
 <template>
-    <Modal
-        v-model="show"
-        title="选择商品"
-        width="800"
-        ok-text="确认"
-        cancel-text="取消"
-        :mask-closable="false"
-        @on-ok="ok"
-    >
-        <div class="search"></div>
-        <Table
-            height="400"
-            class="table"
-            :columns="columns"
-            :data="products"
-            @on-selection-change="chooseGds"
+    <div class="goods-list">
+        <Modal
+            v-model="show"
+            title="选择商品"
+            width="800"
+            ok-text="确认"
+            cancel-text="取消"
+            :mask-closable="false"
+            @on-ok="ok"
         >
-            <template slot="footer">
-                <div class="pages">
-                    <Page :total="total" size="small" show-total></Page>
-                </div>
-            </template>
-        </Table>
-    </Modal>
+            <div class="search"></div>
+            <Table
+                height="400"
+                class="table"
+                :columns="columns"
+                :data="products"
+                @on-selection-change="chooseGds"
+            >
+                <template slot="footer">
+                    <div class="pages">
+                        <Page :total="total" size="small" show-total></Page>
+                    </div>
+                </template>
+            </Table>
+        </Modal>
+    </div>
 </template>
 
 <script>
@@ -103,18 +105,14 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-    .table
-        .ivu-table-cell
-            padding: 0
-            padding-left: 10px
-            .ivu-btn-text
-                color: #2196f3
-        .ivu-table-fixed-right
-            thead
-                .ivu-table-cell
-                    padding-left: 20px
-    .pages
-        display flex
-        justify-content center
-        align-items center
+    .goods-list
+        .table
+            .ivu-table-fixed-right
+                thead
+                    .ivu-table-cell
+                        padding-left: 20px
+        .pages
+            display flex
+            justify-content center
+            align-items center
 </style>

@@ -82,9 +82,9 @@ export default {
         // 获取门店列表
         getStoreList() {
             this.$store.dispatch('getStoreList').then(res => {
-                this.storeDetail = res.data;
+                let storeDetail = res.data;
                 // console.log(this.storeDetail);
-                this.storeDetail.forEach(item => {
+                storeDetail.forEach(item => {
                     this.storeList.push({label: item.storkName, value: item.storkName});
                 });
             });

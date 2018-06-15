@@ -1,0 +1,50 @@
+//Request URL: https://api.quixmart.com/quixmart-api/refundDetail?id=R00281d201806100001&pageNo=1&pageSize=6
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "id" : "R00281d201806090002",
+        "orderId" : "00281d201806090019",
+        "brandId" : 196,
+        "brandName" : null,
+        "storeId" : 10269,
+        "memberOid" : "2088002291355768",
+        "storeName" : "有轨基地",
+        "productName" : "三得利利趣咖啡",
+        "reason" : "买的三得利乌龙茶，标价3.3元",
+        "status" : "1001",
+        "statusName" : null,
+        "amount" : 5.3,
+        "createTime" : "2018-06-09 16:44:48",
+        "updateTime" : "2018-06-09 16:44:48",
+        "fileNumber" : 2,
+        "mobile" : "13771899827",
+        "expressCompany" : null,
+        "expressNo" : null,
+        "auditContent" : null,
+        "coodinateContent" : null,
+        "sumNum" : 1,
+        "tradeNo" : "2018060921001004760545348570",
+        "paymentStatus" : null,
+        "detailList" : {
+            "dataList" : [ {
+                "id" : 10723,
+                "refundId" : "R00281d201806090002",
+                "productSku" : "139",
+                "productName" : "三得利利趣咖啡",
+                "productFormat" : "商品规格",
+                "productModel" : "商品型号",
+                "productBarcode" : "6921581540270",
+                "productBrandName" : "A",
+                "productUnit" : "瓶",
+                "salePrice" : 5.3,
+                "number" : 1
+            } ],
+            "pageNo" : 1,
+            "pageSize" : 6,
+            "total" : 1,
+            "pages" : 1,
+            "totalGdsNum" : 0
+        }
+    }
+}
