@@ -69,8 +69,7 @@ export default {
               'order': 584,
               'sale': 828,
               'amount': 4189
-          },
-          storeDetail: {}
+          }
       };
     },
     beforeMount() {

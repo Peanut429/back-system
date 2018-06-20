@@ -1,0 +1,32 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/store/findStoretypes
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : [ {
+        "id" : 1,
+        "typeName" : "自营"
+    }, {
+        "id" : 2,
+        "typeName" : "加盟"
+    }, {
+        "id" : 3,
+        "typeName" : "零食",
+        "imgPath" : "store-type-snacks.png"
+    }, {
+        "id" : 4,
+        "typeName" : "果蔬",
+        "imgPath" : "store-type-fruit.png"
+    }, {
+        "id" : 5,
+        "typeName" : "生鲜",
+        "imgPath" : "store-type-vegetables.png"
+    }, {
+        "id" : 6,
+        "typeName" : "便利店",
+        "imgPath" : "store-type-haircut.png"
+    }, {
+        "id" : 7,
+        "typeName" : "健身",
+        "imgPath" : "store-type-fitness.png"
+    } ]
+}

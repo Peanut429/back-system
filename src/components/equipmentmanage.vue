@@ -22,10 +22,10 @@
                 <search></search>
             </Col>
         </Row>
-        <Table class="table" :columns="columns">
+        <Table class="table" :columns="columns" :data="data">
             <template slot="footer">
                 <div class="pages">
-                    <Page show-total size="small" :total="100"></Page>
+                    <Page show-total size="small" :total="total"></Page>
                 </div>
             </template>
         </Table>
@@ -39,11 +39,14 @@
     export default {
         data() {
           return {
+              searchInfo: {
+                  storeId: 'all',
+                  type: 'all',
+                  grade: 'all',
+                  isSolved: 'all'
+              },
               storeList: [
-                  {label: '全部', value: 'all'},
-                  {label: '国际科技园01L', value: 'gk01'},
-                  {label: '国际科技园02L', value: 'gk02'},
-                  {label: '国际科技园03L', value: 'gk03'}
+                  {label: '全部', value: 'all'}
               ],
               abnormalType: [
                   {label: '全部', value: 'all'},
@@ -54,27 +57,86 @@
               ],
               abnormalClass: [
                   {label: '全部', value: 'all'},
-                  {label: '严重', value: '3'},
-                  {label: '一般', value: '2'},
-                  {label: '轻微', value: '1'}
+                  {label: '严重', value: '严重'},
+                  {label: '一般', value: '一般'},
+                  {label: '轻微', value: '轻微'}
               ],
               processState: [
                   {label: '全部', value: 'all'},
-                  {label: '未解决', value: '1'},
-                  {label: '已解决', value: '0'}
+                  {label: '未解决', value: 'N'},
+                  {label: '已解决', value: 'Y'}
               ],
               columns: [
-                  {title: '异常编号', key: 'abnormalNumber'},
-                  {title: '所在门店', key: 'storeAddress'},
-                  {title: '报警时间', key: 'alarmTime'},
-                  {title: '异常类型', key: 'abnormalType'},
-                  {title: '异常等级', key: 'abnormalClass'},
-                  {title: '异常描述', key: 'abnormalDesc'},
-                  {title: '处理时间', key: 'processTime'},
-                  {title: '处理状态', key: 'processState'},
-                  {title: '操作', key: 'actions'}
-              ]
+                  {title: '异常编号', key: 'id', width: 80, fixed: 'left'},
+                  {title: '所在门店', key: 'storeName', minWidth: 150, ellipsis: true},
+                  {title: '报警时间', key: 'addTime', minWidth: 150},
+                  {title: '异常类型', key: 'type', minWidth: 80},
+                  {title: '异常等级', key: 'grade', minWidth: 80, align: 'center'},
+                  {title: '异常描述', key: 'description', minWidth: 80},
+                  {title: '处理时间', key: 'updateTime', minWidth: 150},
+                  {
+                      title: '处理状态',
+                      key: 'isSolved',
+                      minWidth: 80,
+                      align: 'center',
+                      render: (h, params) => {
+                          let result = params.row.isSolved === 'Y' ? '已解决' : '未解决';
+                          return h('span', result);
+                      }
+                  },
+                  {
+                      title: '操作',
+                      width: 60,
+                      fixed: 'right',
+                      render: (h, params) => {
+                          if (params.row.isSolved === 'N') {
+                              return h('Button', {
+                                  props: {
+                                      type: 'text',
+                                      size: 'small'
+                                  },
+                                  on: {
+                                      click: () => {
+                                          let now = new Date();
+                                          this.data[params.index].isSolved = 'Y';
+                                          this.$set(this.data[params.index], 'updateTime', now);
+                                          console.log(this.data);
+                                      }
+                                  }
+                              }, '操作');
+                          }
+                      }
+                  }
+              ],
+              data: [],
+              total: 0
           };
+        },
+        beforeMount() {
+            this.getStoreList();
+            this.getMonitor();
+        },
+        methods: {
+            // 获取门店列表
+            getStoreList() {
+                this.$store.dispatch('getStoreList').then(res => {
+                    let storeDetail = res.data;
+                    // console.log(this.storeDetail);
+                    storeDetail.forEach(item => {
+                        this.storeList.push({label: item.storkName, value: item.id});
+                    });
+                });
+            },
+            // 获取监控管理数据
+            getMonitor() {
+                this.$axios.get('/api/monitor').then(res => {
+                    if (res.data.errno === 0) {
+                        console.log(res);
+                        let data = res.data.data;
+                        this.data = data.dataList;
+                    }
+                });
+            }
         },
         components: {
             commontitle,

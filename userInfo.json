@@ -3330,5 +3330,656 @@
             "pages" : 1,
             "totalGdsNum" : 0
         }
-    }
+    },
+    "monitor": {
+        "dataList" : [
+            {
+                "id" : 1758,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-25 06:30:41",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10147,
+                "storeName" : "国际科技园01L",
+                "isSolved" : "Y",
+                "updateTime" : "2018-05-07 10:24:34"
+            }, {
+                "id" : 1753,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-24 18:08:30",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10148,
+                "storeName" : "国际科技园02L",
+                "isSolved" : "Y",
+                "updateTime" : "2018-06-12 11:41:06"
+            }, {
+                "id" : 1727,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-23 13:28:19",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10148,
+                "storeName" : "国际科技园02L",
+                "isSolved" : "Y",
+                "updateTime" : "2018-06-13 10:27:05"
+            }, {
+                "id" : 1725,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-22 14:11:54",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10147,
+                "storeName" : "国际科技园01L",
+                "isSolved" : "Y",
+                "updateTime" : "2018-06-13 13:10:29"
+            }, {
+                "id" : 1723,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-22 05:07:06",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10148,
+                "storeName" : "国际科技园02L",
+                "isSolved" : "N"
+            }, {
+                "id" : 1722,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-21 05:50:32",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10147,
+                "storeName" : "国际科技园01L",
+                "isSolved" : "N"
+            }, {
+                "id" : 1721,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-20 20:45:19",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10148,
+                "storeName" : "国际科技园02L",
+                "isSolved" : "N"
+            }, {
+                "id" : 1718,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-19 22:44:55",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10148,
+                "storeName" : "国际科技园02L",
+                "isSolved" : "N"
+            }, {
+                "id" : 1715,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-19 21:37:43",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10147,
+                "storeName" : "国际科技园01L",
+                "isSolved" : "N"
+            }, {
+                "id" : 1712,
+                "description" : "PLC异常",
+                "addTime" : "2018-04-19 02:09:18",
+                "type" : "PLC故障",
+                "grade" : "严重",
+                "brandName" : "Smart Station",
+                "storeId" : 10149,
+                "storeName" : "国际科技园03L",
+                "isSolved" : "Y",
+                "updateTime" : "2018-04-19 14:12:56"
+            }
+        ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 309,
+        "pages" : 31,
+        "totalGdsNum" : 0
+    },
+    "storeType": [
+        {
+            "id" : 1,
+            "typeName" : "自营"
+        }, {
+            "id" : 2,
+            "typeName" : "加盟"
+        }, {
+            "id" : 3,
+            "typeName" : "零食",
+            "imgPath" : "store-type-snacks.png"
+        }, {
+            "id" : 4,
+            "typeName" : "果蔬",
+            "imgPath" : "store-type-fruit.png"
+        }, {
+            "id" : 5,
+            "typeName" : "生鲜",
+            "imgPath" : "store-type-vegetables.png"
+        }, {
+            "id" : 6,
+            "typeName" : "便利店",
+            "imgPath" : "store-type-haircut.png"
+        }, {
+            "id" : 7,
+            "typeName" : "健身",
+            "imgPath" : "store-type-fitness.png"
+        }
+    ],
+    "storeInfo": {
+        "dataList" : [
+            {
+                "id" : 10724,
+                "type" : 1,
+                "status" : "1",
+                "intoMethod" : 2,
+                "storkNumber" : "b3b73138b0d94589ac4c2e2cb10475e9",
+                "storkName" : "国际科技园设备小兰",
+                "ashEnter" : false,
+                "address" : "苏州国际科技园",
+                "available" : "Y",
+                "deviceNo" : "DBV303-SQA-000004s",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2018-05-22 15:08:52",
+                "updateBy" : 0,
+                "brandId" : 196,
+                "deviceType" : 1,
+                "storeStatus" : 1
+            }, {
+                "id" : 10614,
+                "type" : 1,
+                "status" : "1",
+                "intoMethod" : 1,
+                "storkNumber" : "886434065faf413ab019b4ce96ac8734",
+                "storkName" : "国际科技园设备72",
+                "ashEnter" : false,
+                "address" : "苏州国际科技园",
+                "available" : "Y",
+                "deviceNo" : "DBV1300DMHQB-BML00072s",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2018-05-07 10:32:43",
+                "updateBy" : 0,
+                "brandId" : 196,
+                "deviceType" : 3,
+                "storeStatus" : 1
+            }, {
+                "id" : 10613,
+                "type" : 1,
+                "status" : "1",
+                "intoMethod" : 1,
+                "storkNumber" : "b92207fc6ef94c22828c90d0bab73079",
+                "storkName" : "国际科技园设备71",
+                "ashEnter" : false,
+                "address" : "苏州国际科技园",
+                "available" : "Y",
+                "deviceNo" : "DBV1300DMHQB-BML00071s",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2018-05-07 10:31:09",
+                "updateBy" : 0,
+                "brandId" : 196,
+                "deviceType" : 3,
+                "storeStatus" : 1
+            }, {
+                "id" : 10612,
+                "type" : 1,
+                "status" : "1",
+                "intoMethod" : 1,
+                "storkNumber" : "b45f0fc4324a4294bb9c43920128df5f",
+                "storkName" : "国际科技园设备63",
+                "ashEnter" : false,
+                "address" : "苏州国际科技园",
+                "available" : "Y",
+                "deviceNo" : "DBV1300DMHQB-BML00063s",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2018-05-07 10:30:11",
+                "updateBy" : 0,
+                "brandId" : 196,
+                "deviceType" : 3,
+                "storeStatus" : 1
+            }, {
+                "id" : 10327,
+                "type" : 1,
+                "status" : "0",
+                "intoMethod" : 1,
+                "storkNumber" : "8579f7bff46546b9ab95fadebb1acd15",
+                "storkName" : "系统",
+                "ashEnter" : false,
+                "address" : "系统",
+                "available" : "Y",
+                "deviceNo" : "DBV1300DMHQB-BML00083",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2018-01-08 16:40:41",
+                "updateBy" : 76,
+                "updateTime" : "2018-01-08 16:44:57",
+                "brandId" : 196,
+                "deviceType" : 3
+            }, {
+                "id" : 10270,
+                "type" : 1,
+                "status" : "0",
+                "intoMethod" : 1,
+                "storkNumber" : "6699c2f34b5e4fd6a8767906af85c23c",
+                "storkName" : "高新区工厂",
+                "ashEnter" : false,
+                "remark" : "",
+                "address" : "高新区工厂",
+                "available" : "Y",
+                "deviceNo" : "DBV1300DMHQB-BML00060",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2017-12-20 12:15:08",
+                "updateBy" : 76,
+                "updateTime" : "2018-04-03 11:08:53",
+                "brandId" : 196,
+                "deviceType" : 3,
+                "licenceNo" : ""
+            }, {
+                "id" : 10269,
+                "type" : 1,
+                "status" : "1",
+                "intoMethod" : 1,
+                "storkNumber" : "8d20aeb13cbf472692d0410f5ad555d9",
+                "storkName" : "有轨基地",
+                "ashEnter" : false,
+                "remark" : "",
+                "address" : "有轨基地",
+                "available" : "Y",
+                "deviceNo" : "DBV1300DMHQB-BML00059",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2017-12-20 12:01:04",
+                "updateBy" : 76,
+                "updateTime" : "2018-04-11 16:18:51",
+                "brandId" : 196,
+                "deviceType" : 3,
+                "licenceNo" : ""
+            }, {
+                "id" : 10268,
+                "type" : 1,
+                "status" : "0",
+                "intoMethod" : 1,
+                "storkNumber" : "5ba5b471ae964fcfb6476775f24ff713",
+                "storkName" : "南京2",
+                "ashEnter" : false,
+                "address" : "南京",
+                "available" : "Y",
+                "deviceNo" : "DBV1300-DMHQB-BML00060",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2017-12-20 11:09:20",
+                "updateBy" : 76,
+                "updateTime" : "2018-01-12 14:15:16",
+                "brandId" : 196,
+                "deviceType" : 3
+            }, {
+                "id" : 10267,
+                "type" : 1,
+                "status" : "0",
+                "intoMethod" : 1,
+                "storkNumber" : "e25c3540ce0a4cb6832ea9df49913375",
+                "storkName" : "展会1",
+                "ashEnter" : false,
+                "address" : "南京",
+                "available" : "Y",
+                "deviceNo" : "DBV1300-DMHQB-BML00059",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2017-12-20 11:07:52",
+                "updateBy" : 76,
+                "updateTime" : "2017-12-20 11:59:52",
+                "brandId" : 196,
+                "deviceType" : 3
+            }, {
+                "id" : 10172,
+                "type" : 1,
+                "status" : "0",
+                "intoMethod" : 2,
+                "storkNumber" : "dec5021c835642758e109d09b28b542d",
+                "storkName" : "仕玛特AI无人立柜",
+                "ashEnter" : false,
+                "address" : "苏州",
+                "available" : "Y",
+                "deviceNo" : "DBV1000-DRQYL00029-SMT001",
+                "delFlag" : "S",
+                "createBy" : 76,
+                "createTime" : "2017-10-11 13:13:27",
+                "updateBy" : 76,
+                "updateTime" : "2018-01-02 10:18:49",
+                "brandId" : 196,
+                "deviceType" : 3
+            }
+        ],
+        "pageNo" : 1,
+        "pageSize" : 10,
+        "total" : 13,
+        "pages" : 2,
+        "totalGdsNum" : 0
+    },
+    "role": [
+        {
+            "id": 286,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": null,
+            "roleName": "仓库",
+            "description": null,
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 10,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "库存",
+                    "permissionCode": "inventory",
+                    "sort": 310,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 1,
+                    "appId": 1,
+                    "permissionName": "首页",
+                    "permissionCode": "home_page",
+                    "sort": 100,
+                    "menu": true,
+                    "enable": true
+                },
+                {
+                    "id": 3,
+                    "appId": 1,
+                    "permissionName": "库存管理",
+                    "permissionCode": "inventory_management",
+                    "sort": 300,
+                    "menu": true,
+                    "enable": true
+                }
+            ],
+            "storeCount": 3,
+            "createdDate": "2017-11-20 14:41:57"
+        },
+        {
+            "id": 285,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": null,
+            "roleName": "财务",
+            "description": null,
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 10,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "库存",
+                    "permissionCode": "inventory",
+                    "sort": 310,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 13,
+                    "appId": 1,
+                    "parentId": 4,
+                    "permissionName": "订单列表",
+                    "permissionCode": "order_list",
+                    "sort": 410,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 8,
+                    "appId": 1,
+                    "parentId": 2,
+                    "permissionName": "商品",
+                    "permissionCode": "commodity",
+                    "sort": 210,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 1,
+                    "appId": 1,
+                    "permissionName": "首页",
+                    "permissionCode": "home_page",
+                    "sort": 100,
+                    "menu": true,
+                    "enable": true
+                },
+                {
+                    "id": 12,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "出库",
+                    "permissionCode": "inventory_out",
+                    "sort": 330,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 24,
+                    "appId": 1,
+                    "parentId": 22,
+                    "permissionName": "已处理",
+                    "permissionCode": "refund_handled",
+                    "sort": 570,
+                    "menu": false,
+                    "enable": true
+                }
+            ],
+            "storeCount": 3,
+            "createdDate": "2017-11-20 13:42:22"
+        },
+        {
+            "id": 249,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": null,
+            "roleName": "仕玛特配送员",
+            "description": "配送员",
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 21,
+                    "appId": 1,
+                    "permissionName": "配送",
+                    "permissionCode": "distribution",
+                    "sort": 800,
+                    "menu": true,
+                    "enable": true
+                }
+            ],
+            "storeCount": 6,
+            "createdDate": "2017-09-18 10:50:58"
+        },
+        {
+            "id": 248,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": "COMPANY_ADMIN",
+            "roleName": "Smart Station超级管理员",
+            "description": "Smart Station超级管理员",
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 1,
+                    "appId": 1,
+                    "permissionName": "首页",
+                    "permissionCode": "home_page",
+                    "sort": 100,
+                    "menu": true,
+                    "enable": true
+                },
+                {
+                    "id": 8,
+                    "appId": 1,
+                    "parentId": 2,
+                    "permissionName": "商品",
+                    "permissionCode": "commodity",
+                    "sort": 210,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 9,
+                    "appId": 1,
+                    "parentId": 29,
+                    "permissionName": "促销",
+                    "permissionCode": "promotion",
+                    "sort": 270,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 10,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "库存",
+                    "permissionCode": "inventory",
+                    "sort": 310,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 11,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "入库",
+                    "permissionCode": "inventory_in",
+                    "sort": 320,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 12,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "出库",
+                    "permissionCode": "inventory_out",
+                    "sort": 330,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 13,
+                    "appId": 1,
+                    "parentId": 4,
+                    "permissionName": "订单列表",
+                    "permissionCode": "order_list",
+                    "sort": 410,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 14,
+                    "appId": 1,
+                    "parentId": 5,
+                    "permissionName": "客户列表",
+                    "permissionCode": "customer_list",
+                    "sort": 510,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 15,
+                    "appId": 1,
+                    "parentId": 6,
+                    "permissionName": "监控管理",
+                    "permissionCode": "monitoring_management",
+                    "sort": 610,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 16,
+                    "appId": 1,
+                    "parentId": 7,
+                    "permissionName": "门店",
+                    "permissionCode": "store",
+                    "sort": 710,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 17,
+                    "appId": 1,
+                    "parentId": 7,
+                    "permissionName": "角色",
+                    "permissionCode": "role",
+                    "sort": 720,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 18,
+                    "appId": 1,
+                    "parentId": 7,
+                    "permissionName": "员工",
+                    "permissionCode": "employee",
+                    "sort": 730,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 23,
+                    "appId": 1,
+                    "parentId": 22,
+                    "permissionName": "未处理",
+                    "permissionCode": "refund_unhandle",
+                    "sort": 560,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 24,
+                    "appId": 1,
+                    "parentId": 22,
+                    "permissionName": "已处理",
+                    "permissionCode": "refund_handled",
+                    "sort": 570,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 26,
+                    "appId": 1,
+                    "parentId": 25,
+                    "permissionName": "系统消息",
+                    "permissionCode": "sys_message",
+                    "sort": 910,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 29,
+                    "appId": 1,
+                    "parentId": 28,
+                    "permissionName": "商品价格",
+                    "permissionCode": "commodity_price",
+                    "sort": 260,
+                    "menu": false,
+                    "enable": true
+                }
+            ],
+            "storeCount": 9,
+            "createdDate": "2017-09-18 09:49:41"
+        }
+    ]
 }

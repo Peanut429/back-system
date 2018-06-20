@@ -46,6 +46,10 @@ let refund = appData.refund
 let status = appData.status
 let processedHistory = appData.processedHistory
 let processedRefundDetail = appData.processedRefundDetail
+let monitor = appData.monitor
+let storeType = appData.storeType
+let storeInfo = appData.storeInfo
+let role = appData.role
 
 let apiRouters = express.Router()
 app.use('/api', apiRouters)
@@ -228,6 +232,30 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           res.json({
               errno: 0,
               data: processedRefundDetail
+          })
+      }),
+      app.get('/api/monitor', (req, res) => {
+          res.json({
+              errno: 0,
+              data: monitor
+          })
+      }),
+      app.get('/api/storeType', (req, res) => {
+          res.json({
+              errno: 0,
+              data: storeType
+          })
+      }),
+      app.get('/api/storeInfo', (req, res) => {
+          res.json({
+              errno: 0,
+              data: storeInfo
+          })
+      }),
+      app.get('/api/role', (req, res) => {
+          res.json({
+              errno: 0,
+              data: role
           })
       })
     },
