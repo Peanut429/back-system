@@ -43,8 +43,6 @@ import {mapGetters} from 'vuex';
 export default {
     data() {
         return {
-            nav: {},
-            sortRule: [],
             openNames: [],
             activeName: '',
             firstModule: '',
@@ -56,23 +54,24 @@ export default {
     },
     created() {
         console.log('created');
-        this.newRouter[0].children.forEach(item => {
-            if (!this.nav[item.group]) {
-                this.sortRule.push(item.group);
-                this.nav[item.group] = {};
-                this.nav[item.group].content = [];
-                this.nav[item.group].icon = item.icon;
-                this.nav[item.group].groupTitle = item.groupTitle;
-            }
-            if (!item.hidden) {
-                this.nav[item.group].content.push({title: item.meta.title, permission: item.meta.permission});
-            }
-        });
+        // this.newRouter[0].children.forEach(item => {
+        //     if (!this.nav[item.group]) {
+        //         this.sortRule.push(item.group);
+        //         this.nav[item.group] = {};
+        //         this.nav[item.group].content = [];
+        //         this.nav[item.group].icon = item.icon;
+        //         this.nav[item.group].groupTitle = item.groupTitle;
+        //     }
+        //     if (!item.hidden) {
+        //         this.nav[item.group].content.push({title: item.meta.title, permission: item.meta.permission});
+        //     }
+        // });
         // console.log(this.nav);
         this.firstModule = this.nav[this.sortRule[0]].content[0].permission;
-        if (this.$route.path === '/home') {
-            this.$router.push('/home/' + this.firstModule);
-        }
+        // if (this.$route.path === '/home') {
+        //     // console.log('重定向');
+        //     this.$router.push('/home/' + this.firstModule);
+        // }
         // console.log(this.$route.meta);
         let modulePath = this.$route.meta.active || this.$route.path.slice(this.$route.path.lastIndexOf('/') + 1);
         this.activeName = modulePath === 'home' ? this.firstModule : modulePath;
@@ -95,7 +94,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['newRouter', 'empname'])
+        ...mapGetters(['newRouter', 'nav', 'sortRule', 'empname'])
     },
     components: {}
 };

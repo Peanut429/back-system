@@ -1,0 +1,20 @@
+// Request URL: https://api.quixmart.com/quixmart-api/api/message/detail?messageId=435528
+{
+    "resultCode" : "1",
+    "message" : "",
+    "data" : {
+        "id" : 435528,
+        "messageOid" : "01b7745a-d5d0-4ce2-894e-0eca18dff459",
+        "messageTypeId" : 1001,
+        "content" : "有轨基地商品库存预警，请查看详情。",
+        "viewed" : 1,
+        "isDel" : 0,
+        "referenceId" : 10269,
+        "gdsId" : 11697,
+        "stockAddress" : "有轨基地",
+        "createBy" : 12969,
+        "createDate" : "2018-06-23 13:38:19",
+        "updateBy" : 76,
+        "updateDate" : "2018-06-25 10:30:06"
+    }
+}

@@ -253,6 +253,7 @@
                         });
                     }
                 });
+                this.$store.dispatch('getStoreType');
             },
             // 获取门店信息
             getStoreInfo() {

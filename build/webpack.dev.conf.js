@@ -50,6 +50,12 @@ let monitor = appData.monitor
 let storeType = appData.storeType
 let storeInfo = appData.storeInfo
 let role = appData.role
+let users = appData.users
+let userDetail = appData.userDetail
+let stores = appData.stores
+let message = appData.message
+let msgDetail = appData.msgDetail
+let gdsId = appData.gdsId
 
 let apiRouters = express.Router()
 app.use('/api', apiRouters)
@@ -256,6 +262,42 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           res.json({
               errno: 0,
               data: role
+          })
+      }),
+      app.get('/api/users', (req, res) => {
+          res.json({
+              errno: 0,
+              data: users
+          })
+      }),
+      app.get('/api/userDetail', (req, res) => {
+          res.json({
+              errno: 0,
+              data: userDetail
+          })
+      }),
+      app.get('/api/stores', (req, res) => {
+          res.json({
+              errno: 0,
+              data: stores
+          })
+      }),
+      app.get('/api/message', (req, res) => {
+          res.json({
+              errno: 0,
+              data: message
+          })
+      }),
+      app.get('/api/msgDetail', (req, res) => {
+          res.json({
+              errno: 0,
+              data: msgDetail
+          })
+      }),
+      app.get('/api/gdsId', (req, res) => {
+          res.json({
+              errno: 0,
+              data: gdsId
           })
       })
     },

@@ -1,0 +1,318 @@
+// Request URL: https://api.quixmart.com/quixmart-sso/api/company/app/role?appId=1&companyId=196&pageNo=1&pageSize=20
+{
+    "resultCode": "1",
+    "message": "SUCCESS",
+    "data": [
+        {
+            "id": 286,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": null,
+            "roleName": "仓库",
+            "description": null,
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 10,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "库存",
+                    "permissionCode": "inventory",
+                    "sort": 310,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 1,
+                    "appId": 1,
+                    "permissionName": "首页",
+                    "permissionCode": "home_page",
+                    "sort": 100,
+                    "menu": true,
+                    "enable": true
+                },
+                {
+                    "id": 3,
+                    "appId": 1,
+                    "permissionName": "库存管理",
+                    "permissionCode": "inventory_management",
+                    "sort": 300,
+                    "menu": true,
+                    "enable": true
+                }
+            ],
+            "storeCount": 3,
+            "createdDate": "2017-11-20 14:41:57"
+        },
+        {
+            "id": 285,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": null,
+            "roleName": "财务",
+            "description": null,
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 10,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "库存",
+                    "permissionCode": "inventory",
+                    "sort": 310,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 13,
+                    "appId": 1,
+                    "parentId": 4,
+                    "permissionName": "订单列表",
+                    "permissionCode": "order_list",
+                    "sort": 410,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 8,
+                    "appId": 1,
+                    "parentId": 2,
+                    "permissionName": "商品",
+                    "permissionCode": "commodity",
+                    "sort": 210,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 1,
+                    "appId": 1,
+                    "permissionName": "首页",
+                    "permissionCode": "home_page",
+                    "sort": 100,
+                    "menu": true,
+                    "enable": true
+                },
+                {
+                    "id": 12,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "出库",
+                    "permissionCode": "inventory_out",
+                    "sort": 330,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 24,
+                    "appId": 1,
+                    "parentId": 22,
+                    "permissionName": "已处理",
+                    "permissionCode": "refund_handled",
+                    "sort": 570,
+                    "menu": false,
+                    "enable": true
+                }
+            ],
+            "storeCount": 3,
+            "createdDate": "2017-11-20 13:42:22"
+        },
+        {
+            "id": 249,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": null,
+            "roleName": "仕玛特配送员",
+            "description": "配送员",
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 21,
+                    "appId": 1,
+                    "permissionName": "配送",
+                    "permissionCode": "distribution",
+                    "sort": 800,
+                    "menu": true,
+                    "enable": true
+                }
+            ],
+            "storeCount": 6,
+            "createdDate": "2017-09-18 10:50:58"
+        },
+        {
+            "id": 248,
+            "appId": 1,
+            "companyId": 196,
+            "roleCode": "COMPANY_ADMIN",
+            "roleName": "Smart Station超级管理员",
+            "description": "Smart Station超级管理员",
+            "sort": null,
+            "enable": true,
+            "permissionList": [
+                {
+                    "id": 1,
+                    "appId": 1,
+                    "permissionName": "首页",
+                    "permissionCode": "home_page",
+                    "sort": 100,
+                    "menu": true,
+                    "enable": true
+                },
+                {
+                    "id": 8,
+                    "appId": 1,
+                    "parentId": 2,
+                    "permissionName": "商品",
+                    "permissionCode": "commodity",
+                    "sort": 210,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 9,
+                    "appId": 1,
+                    "parentId": 29,
+                    "permissionName": "促销",
+                    "permissionCode": "promotion",
+                    "sort": 270,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 10,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "库存",
+                    "permissionCode": "inventory",
+                    "sort": 310,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 11,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "入库",
+                    "permissionCode": "inventory_in",
+                    "sort": 320,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 12,
+                    "appId": 1,
+                    "parentId": 3,
+                    "permissionName": "出库",
+                    "permissionCode": "inventory_out",
+                    "sort": 330,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 13,
+                    "appId": 1,
+                    "parentId": 4,
+                    "permissionName": "订单列表",
+                    "permissionCode": "order_list",
+                    "sort": 410,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 14,
+                    "appId": 1,
+                    "parentId": 5,
+                    "permissionName": "客户列表",
+                    "permissionCode": "customer_list",
+                    "sort": 510,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 15,
+                    "appId": 1,
+                    "parentId": 6,
+                    "permissionName": "监控管理",
+                    "permissionCode": "monitoring_management",
+                    "sort": 610,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 16,
+                    "appId": 1,
+                    "parentId": 7,
+                    "permissionName": "门店",
+                    "permissionCode": "store",
+                    "sort": 710,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 17,
+                    "appId": 1,
+                    "parentId": 7,
+                    "permissionName": "角色",
+                    "permissionCode": "role",
+                    "sort": 720,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 18,
+                    "appId": 1,
+                    "parentId": 7,
+                    "permissionName": "员工",
+                    "permissionCode": "employee",
+                    "sort": 730,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 23,
+                    "appId": 1,
+                    "parentId": 22,
+                    "permissionName": "未处理",
+                    "permissionCode": "refund_unhandle",
+                    "sort": 560,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 24,
+                    "appId": 1,
+                    "parentId": 22,
+                    "permissionName": "已处理",
+                    "permissionCode": "refund_handled",
+                    "sort": 570,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 26,
+                    "appId": 1,
+                    "parentId": 25,
+                    "permissionName": "系统消息",
+                    "permissionCode": "sys_message",
+                    "sort": 910,
+                    "menu": false,
+                    "enable": true
+                },
+                {
+                    "id": 29,
+                    "appId": 1,
+                    "parentId": 28,
+                    "permissionName": "商品价格",
+                    "permissionCode": "commodity_price",
+                    "sort": 260,
+                    "menu": false,
+                    "enable": true
+                }
+            ],
+            "storeCount": 9,
+            "createdDate": "2017-09-18 09:49:41"
+        }
+    ]
+}

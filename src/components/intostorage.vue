@@ -272,7 +272,8 @@
                                             this.currentInfo = params.row;
                                             this.$axios.get('/api/condition').then(res => {
                                                 if (res.data.errno === 0) {
-                                                    this.detail_data = res.data.data;
+                                                    this.detail_data = res.data.data.data;
+                                                    console.log(this.detail_data);
                                                     this.detailModal = true;
                                                 }
                                             });

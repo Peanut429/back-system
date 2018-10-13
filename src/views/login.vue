@@ -25,8 +25,8 @@
         data () {
             return {
                 form: {
-                    account: '',
-                    password: ''
+                    account: 'admin',
+                    password: '123456'
                 },
                 ruleInline: {
                     account: [

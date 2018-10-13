@@ -276,6 +276,19 @@ export const asyncRouter = [
                 component: (resolve) => require(['../components/empolyee.vue'], resolve)
             },
             {
+                path: 'user-detail:id',
+                name: 'user-detail',
+                group: 'settings',
+                groupTitle: '系统设置',
+                icon: 'ios-cog',
+                hidden: true,
+                meta: {
+                    title: '',
+                    permission: 'empolyee'
+                },
+                component: (resolve) => require(['../components/userdetail.vue'], resolve)
+            },
+            {
                 path: 'sysmessage',
                 name: 'sysmessage',
                 group: 'messages',
@@ -286,6 +299,19 @@ export const asyncRouter = [
                     permission: 'sysmessage'
                 },
                 component: (resolve) => require(['../components/sysmessage.vue'], resolve)
+            },
+            {
+                path: 'message-detail:id',
+                name: 'message-detail',
+                group: 'messages',
+                groupTitle: '消息管理',
+                icon: 'ios-bell',
+                hidden: true,
+                meta: {
+                    title: '系统消息',
+                    permission: 'sysmessage'
+                },
+                component: (resolve) => require(['../components/msgdetail.vue'], resolve)
             }
         ]
     }

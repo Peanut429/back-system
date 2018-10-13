@@ -1,0 +1,50 @@
+// Request URL: https://api.quixmart.com/quixmart-sso/api/users/detail?userId=77
+{
+    "resultCode": "1",
+    "message": "SUCCESS",
+    "data": {
+        "id": 77,
+        "login": "peisong",
+        "userCode": "002",
+        "phone": "15206134339",
+        "companyId": 196,
+        "companyName": "苏州顺美企业管理有限公司",
+        "fullName": "配送员",
+        "activated": true,
+        "enable": true,
+        "langKey": "zh-cn",
+        "createdBy": "liu",
+        "createdDate": "2017-09-18 10:52:29",
+        "lastModifiedBy": "liu",
+        "lastModifiedDate": "2017-10-11 13:27:19",
+        "authorities": [
+            "ROLE_USER"
+        ],
+        "roles": [
+            {
+                "id": 249,
+                "appId": 1,
+                "companyId": 196,
+                "roleCode": null,
+                "roleName": "仕玛特配送员",
+                "description": "配送员",
+                "sort": null,
+                "enable": true,
+                "permissionList": [],
+                "storeCount": null,
+                "createdDate": "2017-09-18 10:50:58"
+            }
+        ],
+        "permissions": [
+            {
+                "id": 21,
+                "appId": 1,
+                "permissionName": "配送",
+                "permissionCode": "distribution",
+                "sort": 800,
+                "menu": true,
+                "enable": true
+            }
+        ]
+    }
+}

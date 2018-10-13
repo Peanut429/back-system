@@ -1,0 +1,142 @@
+// Request URL: https://api.quixmart.com/quixmart-sso/api/company/users?appId=1&companyId=196&pageNo=1&pageSize=10
+{
+    "resultCode": "1",
+    "message": "SUCCESS",
+    "data": [
+        {
+            "id": 76,
+            "login": "liu",
+            "phone": "15206134339",
+            "companyId": 196,
+            "fullName": "刘",
+            "email": "suzhoushunmei@163.com",
+            "activated": true,
+            "enable": true,
+            "langKey": "zh-cn",
+            "createdBy": "admin",
+            "createdDate": "2017-09-18 09:49:41",
+            "lastModifiedBy": "admin",
+            "lastModifiedDate": "2017-11-06 11:42:02",
+            "authorities": [
+                "ROLE_COMPANY_ADMIN",
+                "ROLE_USER"
+            ],
+            "roles": [
+                {
+                    "id": 248,
+                    "appId": 1,
+                    "companyId": 196,
+                    "roleCode": "COMPANY_ADMIN",
+                    "roleName": "Smart Station超级管理员",
+                    "description": "Smart Station超级管理员",
+                    "sort": null,
+                    "enable": true,
+                    "permissionList": [],
+                    "storeCount": null,
+                    "createdDate": "2017-09-18 09:49:41"
+                }
+            ]
+        },
+        {
+            "id": 77,
+            "login": "peisong",
+            "userCode": "002",
+            "phone": "15206134339",
+            "companyId": 196,
+            "fullName": "配送员",
+            "activated": true,
+            "enable": true,
+            "langKey": "zh-cn",
+            "createdBy": "liu",
+            "createdDate": "2017-09-18 10:52:29",
+            "lastModifiedBy": "liu",
+            "lastModifiedDate": "2017-10-11 13:27:19",
+            "authorities": [
+                "ROLE_USER"
+            ],
+            "roles": [
+                {
+                    "id": 249,
+                    "appId": 1,
+                    "companyId": 196,
+                    "roleCode": null,
+                    "roleName": "仕玛特配送员",
+                    "description": "配送员",
+                    "sort": null,
+                    "enable": true,
+                    "permissionList": [],
+                    "storeCount": null,
+                    "createdDate": "2017-09-18 10:50:58"
+                }
+            ]
+        },
+        {
+            "id": 122,
+            "login": "caiwu",
+            "userCode": "001",
+            "phone": "15206134339",
+            "companyId": 196,
+            "fullName": "财务",
+            "email": "921842883@qq.com",
+            "activated": true,
+            "enable": true,
+            "langKey": "zh-cn",
+            "createdBy": "liu",
+            "createdDate": "2017-11-20 14:31:02",
+            "lastModifiedBy": "liu",
+            "lastModifiedDate": "2017-11-20 14:31:02",
+            "authorities": [
+                "ROLE_USER"
+            ],
+            "roles": [
+                {
+                    "id": 285,
+                    "appId": 1,
+                    "companyId": 196,
+                    "roleCode": null,
+                    "roleName": "财务",
+                    "description": null,
+                    "sort": null,
+                    "enable": true,
+                    "permissionList": [],
+                    "storeCount": null,
+                    "createdDate": "2017-11-20 13:42:22"
+                }
+            ]
+        },
+        {
+            "id": 123,
+            "login": "cangku",
+            "userCode": "004",
+            "phone": "15206134339",
+            "companyId": 196,
+            "fullName": "仓库",
+            "email": "songzhiqing2007@163.com",
+            "activated": true,
+            "enable": true,
+            "langKey": "zh-cn",
+            "createdBy": "liu",
+            "createdDate": "2017-11-20 16:38:57",
+            "lastModifiedBy": "liu",
+            "lastModifiedDate": "2017-11-20 16:38:57",
+            "authorities": [
+                "ROLE_USER"
+            ],
+            "roles": [
+                {
+                    "id": 286,
+                    "appId": 1,
+                    "companyId": 196,
+                    "roleCode": null,
+                    "roleName": "仓库",
+                    "description": null,
+                    "sort": null,
+                    "enable": true,
+                    "permissionList": [],
+                    "storeCount": null,
+                    "createdDate": "2017-11-20 14:41:57"
+                }
+            ]
+        }
+    ]
+}

@@ -20,17 +20,9 @@ router.beforeEach((to, from, next) => {
     // 如果用户名已经存在（用户已登录）
     if (store.getters.account) {
         console.log(1);
-        if (to.path === '/login') {
-            console.log('return home');
-            iview.LoadingBar.finish();
-            // next();
-            location.reload();
-        } else if (store.getters.newRouter.length !== 0) { // 如果新的动态路由已存在 ===>> 跳转至目标地址
-            console.log('to:', to.path);
-            next();
-        } else { // 否则创建新的动态路由
+        if (store.getters.newRouter.length === 0) { // 创建新的动态路由
             console.log('set router');
-			let newRouter = null;
+			let newRouter;
 			let permissionArr = store.getters.permission.split(',');
             let newChildren = asyncRouter[0].children.filter(route => {
                 return permissionArr.indexOf(route.meta.permission) > -1;
@@ -40,9 +32,24 @@ router.beforeEach((to, from, next) => {
             // 将新的路由添加到路由表中
 			router.addRoutes(newRouter);
             // 跳转至目标路由（主页）
+            console.log(to.path);
             store.dispatch('createRouter', newRouter).then(res => {
                 next({...to});
             }).catch(() => {});
+        } else if (to.path === '/login' || to.path === '/') {
+            console.log('return home');
+            iview.LoadingBar.finish();
+            next('/home');
+            // location.reload();
+        } else if (to.path === '/home') {
+            console.log(store.getters.nav, store.getters.sortRule);
+            let firstModule = store.getters.nav[store.getters.sortRule[0]].content[0].permission;
+            console.log('重定向:' + '/home/' + firstModule);
+            next('/home/' + firstModule);
+            iview.LoadingBar.finish();
+        } else { // 如果新的动态路由已存在 ===>> 跳转至目标地址
+            console.log('to:', to.path);
+            next();
         }
     } else { // 如果用户名不存在（用户未登录）
         if (['/login'].indexOf(to.path) !== -1) { // 如果是跳转至登录页面则放行
